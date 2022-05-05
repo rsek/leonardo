@@ -54,6 +54,16 @@ import loadIcons from 'loadicons';
 loadIcons('./spectrum-css-icons.svg');
 loadIcons('./spectrum-icons.svg');
 
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+import bash from 'highlight.js/lib/languages/bash';
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('bash', bash);
+
+window.addEventListener('DOMContentLoaded', () => {
+  hljs.highlightAll();
+});
+
 // Import local Javascript functions
 import { 
   throttle
