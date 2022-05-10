@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-156021617-1"></script>
+  <script>window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+  dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'UA-156021617-1');</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Leonardo</title>
+  <meta property="og:title" content="Leonardo">
+  <meta name="description" content="Generate colors based on a desired contrast ratio.">
+  <meta property="og:description" content="Generate colors based on a desired contrast ratio.">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta name="twitter:card" content="repository-open-graph-leonardo">
+
+  <meta property="og:site_name" content="Leonardo">
+  <meta name="twitter:image:alt" content="Web interface for generating colors based on contrast ratio.">
+
+  <meta name="twitter:site" content="@Leonardo_Color">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.e4ba909c.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.4d3cb3f0.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.7bf70e77.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.f13d74ee.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.579e2f44.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.2a243903.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.62e1f51b.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.3be49adc.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.d25a9db2.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.49bd8aa2.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.e11d217b.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.2be17910.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.ed66619e.png">
+  <link rel="manifest" href="favicons/manifest.js">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.62e1f51b.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="https://use.typekit.net/sik3zpp.css">
+<link rel="stylesheet" href="theme.e3714215.css"></head>
+</head>
+<body class="spectrum spectrum--medium appFrame">
+  <div id="pageLoader">
+    <div class="spectrum-ProgressCircle spectrum-ProgressCircle--indeterminate spectrum-ProgressCircle--large">
+      <div class="spectrum-ProgressCircle-track"></div>
+      <div class="spectrum-ProgressCircle-fills">
+        <div class="spectrum-ProgressCircle-fillMask1">
+          <div class="spectrum-ProgressCircle-fillSubMask1">
+            <div class="spectrum-ProgressCircle-fill"></div>
+          </div>
+        </div>
+        <div class="spectrum-ProgressCircle-fillMask2">
+          <div class="spectrum-ProgressCircle-fillSubMask2">
+            <div class="spectrum-ProgressCircle-fill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="page" style="opacity: 0;">
+    <header class="spectrum-AppHeader">
+  <div class="spectrum-AppHeader_item">
+    <span id="logoTitle">
+  <img src="Leonardo_Logo_sm.0f037468.svg" alt="Leonardo logo" id="headerLogo">
+  <h1 class="spectrum-Typography spectrum-Heading spectrum-Heading--sizeXS spectrum-AppHeader-Title">Leonardo</h1>
+</span>
+
+
+    <div role="tablist" class="spectrum-Tabs spectrum-Tabs--horizontal spectrum-Tabs--quiet spectrum-Tabs--fluid">
+      <div role="tab" id="tabHome" aria-controls="home" tabindex="0" class="spectrum-Tabs-item app-Tabs-item" onclick="openAppTab(event, 'home')">
+        <label class="spectrum-Tabs-itemLabel">
+          <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
+            <use xlink:href="#spectrum-icon-18-Home"></use>
+          </svg>
+        </label>
+      </div>
+
+      <div role="tab" aria-controls="palette" id="tabPalette" class="spectrum-Tabs-item app-Tabs-item" tabindex="0" onclick="openAppTab(event, 'palette')">
+        <label class="spectrum-Tabs-itemLabel">Create</label>
+      </div>
+<!-- 
+      <div role="tab" aria-controls="palette" id="tabPalette" class="spectrum-Tabs-item app-Tabs-item" tabindex="0" onclick="openAppTab(event, 'a11yTab')">
+        <label class="spectrum-Tabs-itemLabel">Accessibility</label>
+      </div> -->
+
+      <div role="tab" aria-controls="codeTab" id="tabTheme" class="spectrum-Tabs-item app-Tabs-item" tabindex="0" onclick="openAppTab(event, 'codeTab')">
+        <label class="spectrum-Tabs-itemLabel">Use</label>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="spectrum-Form spectrum-Form--row">
+
+    <div class="spectrum-Form-item">
+      <div class="spectrum-Textfield spectrum-Textfield--custom" id="themeNameTextfield">
+        <input type="text" class="spectrum-Textfield-input" id="themeNameInput" value="Untitled">
+      </div>
+    </div>
+  </div>
+
+  <div class="spectrum-AppHeader_item spectrum-AppHeader_item--last">
+
+    <div class="spectrum-ActionGroup">
+      <button id="buttonAnalysisColorSpace" title="Analysis color space" class="spectrum-ActionButton spectrum-ActionButton--quiet spectrum-ActionButton--sizeM spectrum-ActionGroup-item spectrum-Popover-trigger">
+        <svg class="spectrum-Icon spectrum-Icon--sizeM" focusable="false" aria-hidden="true" aria-label="Edit">
+          <use xlink:href="#spectrum-icon-18-Beaker"></use>
+        </svg>
+        <!-- <span class="spectrum-ActionButton-label">Analyze</span> -->
+      </button>
+      <button id="buttonAdaptiveControls" title="Theme settings" class="spectrum-ActionButton spectrum-ActionButton--quiet spectrum-ActionButton--sizeM spectrum-ActionGroup-item spectrum-Popover-trigger">
+        <svg class="spectrum-Icon spectrum-Icon--sizeM" focusable="false" aria-hidden="true" aria-label="Copy">
+          <use xlink:href="#spectrum-icon-18-Properties"></use>
+        </svg>
+        <!-- <span class="spectrum-ActionButton-label">Settings</span> -->
+      </button>
+
+      <button id="buttonShareOptions" class="spectrum-Button spectrum-Button--sizeM spectrum-Button--cta spectrum-ActionGroup-item spectrum-Popover-trigger">
+        <!-- <svg class="spectrum-Icon spectrum-Icon--sizeM" focusable="false" aria-hidden="true" aria-label="Copy">
+          <use xlink:href="#spectrum-icon-18-Share" />
+        </svg> -->
+        <span class="spectrum-Button-label">Share</span>
+      </button>
+
+      <div id="popoverShareOptions" class="spectrum-Popover spectrum-Popover--paddedSmall">
+        <div class="spectrum-Form spectrum-Form--spaced">
+          <div class="spectrum-ActionGroup spectrum-ActionGroup--vertical spectrum-ActionGroup--LeftAligned">
+            <button tabindex="0" class="spectrum-ActionButton spectrum-ActionButton--sizeM spectrum-ActionButton--quiet copyThemeURL">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
+                <use xlink:href="#spectrum-icon-18-Link"></use>
+              </svg>
+              <span class="spectrum-ActionButton-label">Copy theme URL</span>
+            </button> 
+            <button id="downloadThemeColorsSvg" class="spectrum-ActionButton spectrum-ActionButton--sizeM spectrum-ActionButton--quiet">
+              <svg class="spectrum-Icon spectrum-Icon--sizeM" focusable="false" aria-hidden="true" aria-label="Download">
+                <use xlink:href="#spectrum-icon-18-Download"></use>
+              </svg>
+              <span class="spectrum-ActionButton-label">Download SVG UI kit</span>
+            </button>  
+            <button id="copyThemeColors" class="spectrum-ActionButton spectrum-ActionButton--sizeM spectrum-ActionButton--quiet copyButton">
+              <svg class="spectrum-Icon spectrum-Icon--sizeM" focusable="false" aria-hidden="true" aria-label="Copy">
+                <use xlink:href="#spectrum-icon-18-Copy"></use>
+              </svg>
+              <span class="spectrum-ActionButton-label">Copy color values</span>
+            </button>
+          </div>
+        </div>
+        <div class="spectrum-Form-item spectrum-Form-item--row">
+          <button id="closeShareOptions" class="spectrum-Button spectrum-Button--sizeM spectrum-Button--primary">Close</button>
+        </div>
+      </div>
+
+      <div id="popoverAnalysisColorSpace" class="spectrum-Popover spectrum-Popover--padded">
+        <div class="spectrum-Panel-Title">
+          <h3 class="spectrum-Typography spectrum-Heading spectrum-Heading--sizeXXS">
+            Analysis color space
+          </h3>
+        </div>
+        <div class="spectrum-Form spectrum-Form--spaced">
+          <div class="spectrum-Form-item spectrum-Form-item--row" style="display: inline-flex">
+            <select class="spectrum-Picker spectrum-Picker--sizeM" name="chartsMode" id="chartsMode" aria-labelledby="chartsModeHeading">
+              <option value="CAM02">CAM02</option>
+              <option value="CAM02p">CAM02 (Ch)</option>
+              <option value="LAB">Lab</option>
+              <option value="LCH">LCh</option>
+              <option value="OKLAB">OKLab</option>
+              <option value="OKLCH">OKLCh</option>
+              <option value="HSL">HSL</option>
+              <option value="HSV">HSV</option>
+              <option value="HSLuv">HSLuv</option>
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Picker-icon spectrum-UIIcon-ChevronDownMedium spectrum-Picker-icon">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium"></use>
+              </svg>
+            </select>
+          </div>
+          <p class="spectrum-Body spectrum-Body--sizeXS">Charts and models will display in the selected color space. A <a href="https://en.wikipedia.org/wiki/List_of_color_spaces_and_their_uses#Uniform_color_spaces" target="_blank">uniform color space</a> is recommended.</p>
+
+          <div class="spectrum-Form-item spectrum-Form-item--row">
+            <button id="closeAnalysisColorSpace" class="spectrum-Button spectrum-Button--sizeM spectrum-Button--primary">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="popoverAdaptiveControls" class="spectrum-Popover spectrum-Popover--padded">
+        <div class="spectrum-Panel-Title">
+          <h3 class="spectrum-Typography spectrum-Heading spectrum-Heading--sizeXXS">
+            Theme settings
+          </h3>
+        </div>
+        <!-- <p class="spectrum-Body spectrum-Body--sizeXS">Modify your entire theme without compromising color relationships. Try making a <b>dark mode</b> theme.</p> -->
+        <div class="spectrum-Form spectrum-Form--spaced">
+          <div class="spectrum-Form-item">
+            <label id="themeBaseLabel" for="themeBase" class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM spectrum-FieldLabel--left is-disabled">Background color scale</label>
+            <select class="spectrum-Picker is-disabled" name="themeBase" id="themeBase" disabled="">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Picker-icon spectrum-UIIcon-ChevronDownMedium spectrum-Picker-icon">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium"></use>
+              </svg>
+            </select>
+          </div>
+        
+          <div class="spectrum-Form-item">
+            <div id="brightnessSliderWrapper" class="spectrum-Slider is-disabled themeSettingsSlider">
+              <div class="spectrum-Slider-labelContainer">
+                <label class="spectrum-Slider-label" id="themeBrightnessLabel" for="themeBrightnessSlider">Lightness</label>
+                <div class="spectrum-Slider-value" role="textbox" aria-readonly="true" aria-labelledby="themeBrightnessLabel" id="themeBrightnessValue">100%</div>
+              </div>
+              <input class="spectrum-Slider-controls" type="range" min="0" max="100" value="100" id="themeBrightnessSlider" name="themeBrightnessSlider" disabled="">
+            </div>
+            <div id="contrastSliderWrapper" class="spectrum-Slider is-disabled themeSettingsSlider">
+              <div class="spectrum-Slider-labelContainer">
+                <label class="spectrum-Slider-label" id="themeContrastLabel" for="themeContrastSlider">Contrast</label>
+                <div class="spectrum-Slider-value" role="textbox" aria-readonly="true" aria-labelledby="themeContrastLabel" id="themeContrastValue">100%</div>
+              </div>
+              <input class="spectrum-Slider-controls" type="range" min="0.25" max="5" value="1" step="0.01" id="themeContrastSlider" name="themeContrastSlider" disabled="">
+            </div>
+            <div id="saturationSliderWrapper" class="spectrum-Slider is-disabled themeSettingsSlider">
+              <div class="spectrum-Slider-labelContainer">
+                <label class="spectrum-Slider-label" id="themeSaturationLabel" for="themeSaturationSlider">Saturation</label>
+                <div class="spectrum-Slider-value" role="textbox" aria-readonly="true" aria-labelledby="themeSaturationLabel" id="themeSaturationValue">100%</div>
+              </div>
+              <input class="spectrum-Slider-controls" type="range" min="0" max="100" value="100" step="1" id="themeSaturationSlider" name="themeSaturationSlider" disabled="">
+            </div>
+          </div>
+          <div class="spectrum-Form-item spectrum-Form-item--row">
+            <button id="closeAdaptiveControls" class="spectrum-Button spectrum-Button--sizeM spectrum-Button--primary">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a tabindex="0" href="https://www.github.com/adobe/leonardo" target="_blank" id="octo-link"> 
+  <svg xmlns="http://www.w3.org/2000/svg" width="32.579" height="31.775" viewBox="0 0 32.579 31.775">
+    <path id="Path_1" data-name="Path 1" d="M152.608,107.44a16.291,16.291,0,0,0-5.148,31.747c.815.149,1.112-.353,1.112-.785,0-.387-.014-1.411-.022-2.771-4.531.985-5.487-2.183-5.487-2.183a4.315,4.315,0,0,0-1.809-2.383c-1.479-1.011.112-.99.112-.99a3.42,3.42,0,0,1,2.495,1.678,3.468,3.468,0,0,0,4.741,1.354,3.482,3.482,0,0,1,1.034-2.178c-3.617-.411-7.42-1.808-7.42-8.051a6.3,6.3,0,0,1,1.677-4.371,5.852,5.852,0,0,1,.16-4.311s1.367-.438,4.479,1.67a15.448,15.448,0,0,1,8.156,0c3.11-2.108,4.475-1.67,4.475-1.67a5.854,5.854,0,0,1,.163,4.311A6.286,6.286,0,0,1,163,122.878c0,6.258-3.809,7.635-7.438,8.038a3.889,3.889,0,0,1,1.106,3.017c0,2.178-.02,3.935-.02,4.469,0,.435.294.942,1.12.783a16.292,16.292,0,0,0-5.16-31.745Z" transform="translate(-136.32 -107.44)" fill="var(--spectrum-global-color-gray-900)" fill-rule="evenodd"></path>
+  </svg>  
+</a>
+  </div>
+</header>
+
+    <!-- Home Tab -->
+<div id="home" class="AppTab appFrameSideNav">
+  <nav class="sideNav-Wrapper">
+  <ul class="spectrum-SideNav">
+    <li class="spectrum-SideNav-item">
+      <a href="#" class="spectrum-SideNav-itemLink" onclick="openSideNavItem(event, 'homeContent')" id="welcome">Welcome</a>
+    </li>
+    <li class="spectrum-SideNav-item">
+      <a href="#" class="spectrum-SideNav-itemLink" onclick="openSideNavItem(event, 'getstartedContent')">Leonardo JS API</a>
+    </li>
+    <li class="spectrum-SideNav-item">
+      <a href="#" class="spectrum-SideNav-itemLink" onclick="openSideNavItem(event, 'articlesContent')">Articles</a>
+    </li>
+
+  </ul>
+</nav>
+
+  <main class="home-Wrapper spectrum-Typography">
+    <div class="sideNavContent" id="homeContent">
+  <div style="display: flex;
+  flex-direction: column;
+  align-items: flex-start;">
+
+    <section id="homeMainSection">
+      <h1 class="spectrum-Heading spectrum-Heading--sizeXXL spectrum-Heading--heavy">
+        Color tools for design systems
+      </h1>
+  
+      <div class="selectBox--row">
+        <a href="theme.html" target="_blank" class="selectBox">
+          <div class="selectBox_Content">
+            <img src="box_theme.ce4d1511.png" class="selectBox_image">
+            <h1 class="spectrum-Heading spectrum-Heading--sizeS selectBox_title">
+              Adaptive color theme
+            </h1>
+            <p class="spectrum-Body spectrum-Body--sizeS selectBox_content">
+              Accessible color themes for user interfaces
+            </p>
+          </div>
+          
+          <button class="spectrum-Button spectrum-Button--sizeM spectrum-Button--cta selectBox_Button">Create new theme</button>
+        </a>
+        <a href="scales.html" target="_blank" class="selectBox">
+          <div class="selectBox_Content">
+            <img src="box_colorScales.1a2e6978.png" class="selectBox_image">
+            <h1 class="spectrum-Heading spectrum-Heading--sizeS selectBox_title">
+              Color scales
+            </h1>
+            <p class="spectrum-Body spectrum-Body--sizeS selectBox_content">
+              Colors for data visualization
+            </p>  
+          </div>
+          <button class="spectrum-Button spectrum-Button--sizeM spectrum-Button--cta selectBox_Button">Create datavis colors</button>
+        </a>
+        <a href="tools.html" target="_blank" class="selectBox">
+          <div class="selectBox_Content">
+            <img src="box_tools.cdf408c3.png" class="selectBox_image">
+            <h1 class="spectrum-Heading spectrum-Heading--sizeS selectBox_title">
+              Color toolbox
+            </h1>
+            <p class="spectrum-Body spectrum-Body--sizeS selectBox_content">
+              Tools for evaluating colors, contrast, and more
+            </p>  
+          </div>
+          <button class="spectrum-Button spectrum-Button--sizeM spectrum-Button--cta selectBox_Button">Launch tools</button>
+        </a>
+      </div>
+    </section>
+
+
+
+    <!-- <hr class="spectrum-Divider spectrum-Divider--sizeM" style="margin-top: 76px;"/> -->
+
+    <section class="section--centered">
+      <h2 class="spectrum-Heading spectrum-Heading--sizeL spectrum-Heading--heavy">
+        What is Leonardo?
+      </h2>
+      <p class="spectrum-Body spectrum-Body--sizeL">Leonardo is a one-of-a-kind tool for creating, managing, and sharing accessible color systems for user interface design and data visualization.</p>
+    </section>
+
+    <section class="section--split">
+      <div class="section--right">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          In-depth color analysis
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Charts and 3d models allow you to evaluate your color theme like never before.
+        </p>
+      </div>
+      <div class="section--left section--image">
+        <img src="home_analyze.369f9e87.png">
+      </div>
+    </section>
+    
+    <section class="section--split">
+      <div class="section--left">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          Precise color control
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Choose from a variety of color spaces to create perceptually balanced color scales.
+        </p>
+      </div>
+      <div class="section--right section--image">
+        <img src="home_preciseControl.ada405d4.png">
+      </div>
+    </section>
+
+    <section class="section--split">
+      <div class="section--right">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          Contrast-ratio-based color generation
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Color swatches are generated by target contrast ratios so you no longer need to manually check contrast.
+        </p>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Controls are paired with lightness inputs so you can also define your swatches by target lightness.
+        </p>
+      </div>
+      <div class="section--left section--image">
+        <img src="home_contrastGeneration.dad5db51.png">
+      </div>
+    </section>
+
+
+    <section class="section--split">
+      <div class="section--left">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          Dark mode in seconds
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Leonardo’s adaptive themes enable you to change the brightness, contrast, and saturation in less time than ever before.
+        </p>
+      </div>
+      <div class="section--right section--image">
+        <img src="home_darkMode.81b6a028.png">
+      </div>
+    </section>
+
+
+    <section class="section--split">
+      <div class="section--right">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          Streamlined design resources
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Download your theme or color scales as SVG files. Copy and paste directly into your design tool of choice.
+        </p>
+      </div>
+      <div class="section--left section--image">
+        <img src="home_designAssets.eaa43580.png">
+      </div>
+    </section>
+
+    <section class="section--split">
+      <div class="section--left">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          Output for your engineers
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Theme parameters for <code>@adobe/leonardo-contrast-colors</code>, CSS custom properties, and Design Tokens following the <a href="https://www.w3.org/community/design-tokens/" target="_blank">w3c working spec</a>.
+        </p>
+      </div>
+      <div class="section--right section--image">
+        <img src="home_engOutput.79604059.png">
+      </div>
+    </section>
+
+
+    <section class="section--split">
+      <div class="section--right">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          Data visualization scales
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Advanced control over perceptually uniform sequential and diverging color scales.
+        </p>
+      </div>
+      <div class="section--left section--image">
+        <img src="home_diverging.19ba407d.png">
+      </div>
+    </section>
+
+
+    <section class="section--split">
+      <div class="section--left">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          End-user personalization
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Leonardo’s <a target="_blank" href="https://www.npmjs.com/package/@adobe/leonardo-contrast-colors">npm module</a> can be used to give your end-users an inclusive, adaptive theme. Your users can change the overall contrast, brightness, and saturation of their experience.
+        </p>
+      </div>
+      <div class="section--right section--image">
+        <img src="home_userControl.5a9e601f.png">
+      </div>
+    </section>
+
+    <section class="section--split">
+      <div class="section--right">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          Colorblind safe colors made easy
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Automatically cycle through your colors to create a colorblind safe palette. 
+        </p>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Advanced controls allow for displaying colors with greater color difference, or only colors that meet a 3:1 contrast minimum.
+        </p>
+      </div>
+      <div class="section--left section--image">
+        <img src="home_CVD.1ec8f0ad.png">
+      </div>
+    </section>
+
+
+   
+    <section class="section--split">
+      <div class="section--left">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          Compare colors for contrast and more
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Check color contrast between two colors with <strong>alpha transparency</strong> support.
+        </p>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Stop the guesswork on color blind safety. Leonardo evaluates the measurable color difference between two colors for each color vision deficiency type.
+        </p>
+      </div>
+      <div class="section--right section--image">
+        <img src="home_compare.0d0ad278.png">
+      </div>
+    </section>
+
+
+    <section class="section--split">
+      <div class="section--right">
+        <h3 class="spectrum-Heading spectrum-Heading--sizeM">
+          Open source
+        </h3>
+        <p class="spectrum-Body spectrum-Body--sizeM">
+          Leonardo is an <a href="https://opensource.adobe.com/" target="_blank">Adobe open source project</a>. You can help improve Leonardo to better suit your needs.
+        </p>
+      </div>
+      <div class="section--left section--image">
+        <img src="home_openSource.8dda1608.png">
+      </div>
+    </section>
+
+
+    <section class="section--centered">
+      <h2 class="spectrum-Heading spectrum-Heading--sizeL spectrum-Heading--heavy">
+        Want to learn more?
+      </h2>
+      <p class="spectrum-Body spectrum-Body--sizeL">
+        Visit the Getting started section or visit <a class="spectrum-Link" href="https://github.com/adobe/leonardo" target="_blank">Github</a> for more detail on how to use Leonardo. 
+        Additional information is available in the Articles section from publications about Leonardo and its core concepts.
+      </p>
+    </section>
+
+  </div>
+
+  <footer style="margin-top: 32px;">
+  <hr class="spectrum-Divider spectrum-Divider--sizeS">
+  <p class="spectrum-Body spectrum-Body--size-XS">
+    Leonardo is an  
+    <a class="spectrum-Link" href="https://github.com/adobe" target="_blank">
+      Adobe Open Source
+    </a> project.
+  </p>
+</footer>
+</div>
+    <div class="sideNavContent" id="getstartedContent">
+  <div class="spectrum-Typography">
+    <h1 class="spectrum-Heading spectrum-Heading--sizeXXL spectrum-Heading--heavy">Leonardo JS API</h1>
+    <hr class="spectrum-Divider spectrum-Divider--sizeM">
+    <p class="spectrum-Body spectrum-Body--sizeL">
+      The API docs will help you to use @adobe/leonardo-contrast-colors in your development environment.
+    </p>
+    <h2 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy" id="docs-quick-start">Quick start</h2>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-install-the-package">Install the package:</h3>
+    <pre><code><span class="hljs-selector-tag">npm</span> <span class="hljs-selector-tag">i</span> @<span class="hljs-keyword">adobe</span>/<span class="hljs-keyword">leonardo</span>-<span class="hljs-keyword">contrast</span>-<span class="hljs-keyword">colors</span>
+    </code></pre>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-import-the-package">Import the package:</h3>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-cjs-node-12-x">CJS (Node 12.x)</h4>
+    <pre><code class="lang-js"><span class="hljs-keyword">const</span> { Theme, Color, BackgroundColor } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@adobe/leonardo-contrast-colors'</span>);
+    </code></pre>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-esm-node-13-x">ESM (Node 13.x)</h4>
+    <pre><code class="lang-js"><span class="hljs-keyword">import</span> { Theme, Color, BackgroundColor } <span class="hljs-keyword">from</span> <span class="hljs-string">'@adobe/leonardo-contrast-colors'</span>;
+    </code></pre>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-create-and-pass-colors-and-a-background-color-to-a-new-theme-see-additional-options-below">Create and pass colors and a background color to a new Theme (see additional options below):</h3>
+    <pre><code class="lang-js"><span class="hljs-keyword">let</span> gray = <span class="hljs-keyword">new</span> BackgroundColor({
+          name: <span class="hljs-string">'gray'</span>,
+          colorKeys: [<span class="hljs-string">'#cacaca'</span>],
+          ratios: [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">8</span>]
+        });
+    
+    <span class="hljs-keyword">let</span> blue = <span class="hljs-keyword">new</span> Color({
+          name: <span class="hljs-string">'blue'</span>,
+          colorKeys: [<span class="hljs-string">'#5CDBFF'</span>, <span class="hljs-string">'#0000FF'</span>],
+          ratios: [<span class="hljs-number">3</span>, <span class="hljs-number">4.5</span>]
+        });
+    
+    <span class="hljs-keyword">let</span> red = <span class="hljs-keyword">new</span> Color({
+          name: <span class="hljs-string">'red'</span>,
+          colorKeys: [<span class="hljs-string">'#FF9A81'</span>, <span class="hljs-string">'#FF0000'</span>],
+          ratios: [<span class="hljs-number">3</span>, <span class="hljs-number">4.5</span>]
+        });
+    
+    <span class="hljs-keyword">let</span> theme = <span class="hljs-keyword">new</span> Theme({colors: [gray, blue, red], backgroundColor: gray, lightness: <span class="hljs-number">97</span>});
+    
+    <span class="hljs-comment">// returns theme colors as JSON</span>
+    <span class="hljs-keyword">let</span> colors = theme.contrastColors;
+    </code></pre>
+    <h2 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy" id="docs-api-reference">API Reference</h2>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-theme"><code>Theme</code></h3>
+    <p>Class function used to generate adaptive contrast-based colors. Parameters are destructured and need to be explicitly called.</p>
+    <table class="spectrum-Table spectrum-Table--sizeM">
+       <thead class="spectrum-Table-head">
+          <tr class="spectrum-Table-row">
+             <th class="spectrum-Table-headCell">Parameter</th>
+             <th class="spectrum-Table-headCell">Type</th>
+             <th class="spectrum-Table-headCell">Description</th>
+          </tr>
+       </thead>
+       <tbody class="spectrum-Table-body">
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>colors</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Array</td>
+             <td class="spectrum-Table-cell" tabindex="0">List of <code>Color</code> classes to generate theme colors for. A single <code>BackgroundColor</code> class is required.</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>lightness</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Number</td>
+             <td class="spectrum-Table-cell" tabindex="0">Value from 0-100 for desired lightness of generated theme background color (whole number)</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>contrast</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Number</td>
+             <td class="spectrum-Table-cell" tabindex="0">Multiplier to increase or decrease contrast for all theme colors (default is <code>1</code>)</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>saturation</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Number</td>
+             <td class="spectrum-Table-cell" tabindex="0">Value from 0-100 for decreasing saturation of all theme colors (default is <code>100</code>)</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>output</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Enum</td>
+             <td class="spectrum-Table-cell" tabindex="0">Desired color output format</td>
+          </tr>
+       </tbody>
+    </table>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-setters">Setters</h4>
+    <table class="spectrum-Table spectrum-Table--sizeM">
+       <thead class="spectrum-Table-head">
+          <tr class="spectrum-Table-row">
+             <th class="spectrum-Table-headCell">Setter</th>
+             <th class="spectrum-Table-headCell">Description of output</th>
+          </tr>
+       </thead>
+       <tbody class="spectrum-Table-body">
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Theme.lightness</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the theme&#39;s lightness value</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Theme.contrast</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the theme&#39;s contrast value</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Theme.saturation</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the theme&#39;s saturation value</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Theme.backgroundColor</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the theme&#39;s background color (creates a new <code>BackgroundColor</code> if passing a string)</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Theme.colors</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets colors for theme (must pass <code>Color</code>)</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Theme.output</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets output format for theme</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><a href="#docs-themeaddcolor--color"><code>Theme.addColor</code></a></td>
+             <td class="spectrum-Table-cell" tabindex="0">Add a <code>Color</code> to the theme</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><a href="#docs-themeremovecolor--color"><code>Theme.removeColor</code></a></td>
+             <td class="spectrum-Table-cell" tabindex="0">Remove a <code>Color</code> from the theme</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><a href="#docs-themeupdatecolor--name-property"><code>Theme.updateColor</code></a></td>
+             <td class="spectrum-Table-cell" tabindex="0">Update a <code>Color</code> via its setters from the theme</td>
+          </tr>
+       </tbody>
+    </table>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-theme-addcolor-color"><code>Theme.addColor = color</code></h4>
+    <p>Add a <code>Color</code> to an existing theme</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">const</span> red = new <span class="hljs-type">Color</span>(<span class="hljs-meta">{...}</span>)
+    
+    theme.addColor = red;
+    </code></pre>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-theme-removecolor-color"><code>Theme.removeColor = color</code></h4>
+    <p>Remove a <code>Color</code> from an existing theme. Accepts an object with the <code>Color</code>&#39;s name and value, or by passing the <code>Color</code> class itself.</p>
+    <pre><code class="lang-js">// <span class="hljs-type">Remove</span> via color name
+    theme.removeColor = {name: '<span class="hljs-type">Red</span>'};
+    
+    // <span class="hljs-type">Remove</span> via <span class="hljs-type">Color</span> class
+    <span class="hljs-keyword">const</span> red = new <span class="hljs-type">Color</span>(<span class="hljs-meta">{...}</span>)
+    theme.removeColor = red;
+    </code></pre>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-theme-updatecolor-name-property"><code>Theme.updateColor = {name, property}</code></h4>
+    <p>Update a <code>Color</code> via its setters from the theme. Accepts an object with the name of the color you wish to modify, followed by the property and the new value you wish to modify.</p>
+    <pre><code class="lang-js">const red = <span class="hljs-keyword">new</span> Color({...})
+    <span class="hljs-comment">// Change the colors ratios</span>
+    theme.updateColor = {<span class="hljs-string">name:</span> <span class="hljs-string">'red'</span>, <span class="hljs-string">ratios:</span> [<span class="hljs-number">3</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">7</span>]};
+    
+    <span class="hljs-comment">// Change the colors colorKeys</span>
+    theme.updateColor = {<span class="hljs-string">name:</span> <span class="hljs-string">'red'</span>, <span class="hljs-string">colorKeys:</span> [<span class="hljs-string">'#ff0000'</span>]};
+    
+    <span class="hljs-comment">// Change the color's name</span>
+    theme.updateColor = {<span class="hljs-string">name:</span> <span class="hljs-string">'red'</span>, <span class="hljs-string">name:</span> <span class="hljs-string">'Crimson'</span>};
+    </code></pre>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-supported-output-formats">Supported output formats:</h4>
+    <p>Available output formats conform to the <a href="https://www.w3.org/TR/css-color-4/">W3C CSS Color Module Level 4</a> spec for the supported options, as listed below:</p>
+    <table class="spectrum-Table spectrum-Table--sizeM">
+       <thead class="spectrum-Table-head">
+          <tr class="spectrum-Table-row">
+             <th class="spectrum-Table-headCell">Output option</th>
+             <th class="spectrum-Table-headCell">Sample value</th>
+          </tr>
+       </thead>
+       <tbody class="spectrum-Table-body">
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>&#39;HEX&#39;</code>  <em>(default)</em></td>
+             <td class="spectrum-Table-cell" tabindex="0"><code>#RRGGBB</code></td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>&#39;RGB&#39;</code></td>
+             <td class="spectrum-Table-cell" tabindex="0"><code>rgb(255, 255, 255)</code></td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>&#39;HSL&#39;</code></td>
+             <td class="spectrum-Table-cell" tabindex="0"><code>hsl(360deg, 0%, 100%)</code></td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>&#39;HSV&#39;</code></td>
+             <td class="spectrum-Table-cell" tabindex="0"><code>hsv(360deg, 0%, 100%)</code></td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>&#39;HSLuv&#39;</code></td>
+             <td class="spectrum-Table-cell" tabindex="0"><code>hsluv(360, 0, 100)</code></td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>&#39;LAB&#39;</code></td>
+             <td class="spectrum-Table-cell" tabindex="0"><code>lab(100%, 0, 0)</code></td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>&#39;LCH&#39;</code></td>
+             <td class="spectrum-Table-cell" tabindex="0"><code>lch(100%, 0, 360deg)</code></td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>&#39;CAM02&#39;</code></td>
+             <td class="spectrum-Table-cell" tabindex="0"><code>jab(100%, 0, 0)</code></td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>&#39;CAM02p&#39;</code></td>
+             <td class="spectrum-Table-cell" tabindex="0"><code>jch(100%, 0, 360deg)</code></td>
+          </tr>
+       </tbody>
+    </table>
+    <hr class="spectrum-Divider spectrum-Divider--sizeM">
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-color"><code>Color</code></h3>
+    <p>Class function used to define colors for a theme. Parameters are destructured and need to be explicitly called.</p>
+    <table class="spectrum-Table spectrum-Table--sizeM">
+       <thead class="spectrum-Table-head">
+          <tr class="spectrum-Table-row">
+             <th class="spectrum-Table-headCell">Parameter</th>
+             <th class="spectrum-Table-headCell">Type</th>
+             <th class="spectrum-Table-headCell">Description</th>
+          </tr>
+       </thead>
+       <tbody class="spectrum-Table-body">
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>name</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">String</td>
+             <td class="spectrum-Table-cell" tabindex="0">User-defined name for a color, (eg &quot;Blue&quot;). Used to name output color values</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>colorKeys</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Array of strings</td>
+             <td class="spectrum-Table-cell" tabindex="0">List of specific colors to interpolate between in order to generate a full lightness scale of the color.</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>colorspace</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Enum</td>
+             <td class="spectrum-Table-cell" tabindex="0">The <a href="#docs-Supported-interpolation-colorspaces">colorspace</a> in which the key colors will be interpolated within.</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>ratios</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Array or Object</td>
+             <td class="spectrum-Table-cell" tabindex="0">List of target contrast ratios, or object with named keys for each value.</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>smooth</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Boolean</td>
+             <td class="spectrum-Table-cell" tabindex="0">Applies bezier smoothing to interpolation (false by default)</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>output</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Enum</td>
+             <td class="spectrum-Table-cell" tabindex="0">Desired color output format</td>
+          </tr>
+       </tbody>
+    </table>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-setters">Setters</h4>
+    <table class="spectrum-Table spectrum-Table--sizeM">
+       <thead class="spectrum-Table-head">
+          <tr class="spectrum-Table-row">
+             <th class="spectrum-Table-headCell">Setter</th>
+             <th class="spectrum-Table-headCell">Description of output</th>
+          </tr>
+       </thead>
+       <tbody class="spectrum-Table-body">
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Color.colorKeys</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the color keys</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Color.colorspace</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the interpolation colorspace</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Color.ratios</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the ratios</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Color.name</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the name</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Color.smooth</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the smoothing option</td>
+          </tr>
+          <tr class="spectrum-Table-row">
+             <td class="spectrum-Table-cell" tabindex="0"><code>Color.output</code></td>
+             <td class="spectrum-Table-cell" tabindex="0">Sets the output format</td>
+          </tr>
+       </tbody>
+    </table>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-supported-interpolation-colorspaces">Supported interpolation colorspaces:</h4>
+    <p>Below are the available options for interpolation in Leonardo:</p>
+    <ul>
+       <li><a href="https://en.wikipedia.org/wiki/HCL_color_space">LCH</a></li>
+       <li><a href="https://en.wikipedia.org/wiki/CIELAB_color_space">LAB</a></li>
+       <li><a href="https://en.wikipedia.org/wiki/CIECAM02">CAM02</a></li>
+       <li><a href="https://en.wikipedia.org/wiki/HSL_and_HSV">HSL</a></li>
+       <li><a href="https://en.wikipedia.org/wiki/HSLuv">HSLuv</a></li>
+       <li><a href="https://en.wikipedia.org/wiki/HSL_and_HSV">HSV</a></li>
+       <li><a href="https://en.wikipedia.org/wiki/RGB_color_space">RGB</a></li>
+    </ul>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-ratios-as-an-array">Ratios as an array</h4>
+    <p>When passing a flat array of target ratios, the output colors in your Theme will be generated by concatenating the color name (eg &quot;Blue&quot;) with numeric increments. Colors with a <strong>positive contrast ratio</strong> with the base (ie, 2:1) will be named in increments of 100. For example, <code>gray100</code>, <code>gray200</code>.</p>
+    <p>Colors with a <strong>negative contrast ratio</strong> with the base (ie -2:1) will be named in increments less than 100 and <em>based on the number of negative values declared</em>. For example, if there are 3 negative values <code>[-1.4, -1.3, -1.2, 1, 2, 3]</code>, the name for those values will be incremented by 100/4 (length plus one to avoid a <code>0</code> value), such as <code>gray25</code>, <code>gray50</code>, and <code>gray75</code>.</p>
+    <p>For example:</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">new</span> Color({
+    <span class="hljs-symbol">  name:</span> <span class="hljs-string">'blue'</span>,
+    <span class="hljs-symbol">  colorKeys:</span> [<span class="hljs-string">'#5CDBFF'</span>, <span class="hljs-string">'#0000FF'</span>],
+    <span class="hljs-symbol">  colorSpace:</span> <span class="hljs-string">'LCH'</span>,
+    <span class="hljs-symbol">  ratios:</span> [<span class="hljs-number">3</span>, <span class="hljs-number">4.5</span>]
+    });
+    
+    <span class="hljs-comment">// Returns:</span>
+    [
+      {
+    <span class="hljs-symbol">    name:</span> <span class="hljs-string">'blue'</span>,
+    <span class="hljs-symbol">    values:</span> [
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"blue100"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">3</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#8d63ff"</span>},
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"blue200"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">4.5</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#623aff"</span>}
+        ]
+      }
+    ]
+    </code></pre>
+    <h4 class="spectrum-Heading spectrum-Heading--sizeXS" id="docs-ratios-as-an-object">Ratios as an object</h4>
+    <p>When defining ratios as an object with key-value pairs, you define what name will be output in your Leonardo theme.</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">new</span> Color({
+    <span class="hljs-symbol">  name:</span> <span class="hljs-string">'blue'</span>,
+    <span class="hljs-symbol">  colorKeys:</span> [<span class="hljs-string">'#5CDBFF'</span>, <span class="hljs-string">'#0000FF'</span>],
+    <span class="hljs-symbol">  colorSpace:</span> <span class="hljs-string">'LCH'</span>,
+    <span class="hljs-symbol">  ratios:</span> {
+        <span class="hljs-string">'blue--largeText'</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-string">'blue--normalText'</span>: <span class="hljs-number">4.5</span>
+      }
+    });
+    
+    <span class="hljs-comment">// Returns:</span>
+    [
+      {
+    <span class="hljs-symbol">    name:</span> <span class="hljs-string">'blue'</span>,
+    <span class="hljs-symbol">    values:</span> [
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"blue--largeText"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">3</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#8d63ff"</span>},
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"blue--normalText"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">4.5</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#623aff"</span>}
+        ]
+      }
+    ]
+    </code></pre>
+    <hr class="spectrum-Divider spectrum-Divider--sizeM">
+    <h2 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy" id="docs-output-examples">Output examples</h2>
+    <p>There are two types of output you can get from the <code>Theme</code> class:
+       | Getter | Description of output |
+       |--------|-----------------------|
+       | <code>Theme.contrastColors</code> | Returns array of color objects with key-value pairs |
+       | <code>Theme.contrastColorPairs</code> | Returns object with key-value pairs |
+       | <code>Theme.contrastColorValues</code> | Returns flat array of color values |
+    </p>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-theme-contrastcolors"><code>Theme.contrastColors</code></h3>
+    <p>Each color is an object named by user-defined value (eg <code>name: &#39;gray&#39;</code>). &quot;Values&quot; array consists of all generated color values for the color, with properties <code>name</code>, <code>contrast</code>, and <code>value</code>:</p>
+    <pre><code class="lang-js">[
+      { <span class="hljs-string">background:</span> <span class="hljs-string">"#e0e0e0"</span> },
+      {
+    <span class="hljs-symbol">    name:</span> <span class="hljs-string">'gray'</span>,
+    <span class="hljs-symbol">    values:</span> [
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"gray100"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">1</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#e0e0e0"</span>},
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"gray200"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">2</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#a0a0a0"</span>},
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"gray300"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">3</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#808080"</span>},
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"gray400"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">4.5</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#646464"</span>}
+        ]
+      },
+      {
+    <span class="hljs-symbol">    name:</span> <span class="hljs-string">'blue'</span>,
+    <span class="hljs-symbol">    values:</span> [
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"blue100"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">2</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#b18cff"</span>},
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"blue200"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">3</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#8d63ff"</span>},
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"blue300"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">4.5</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#623aff"</span>},
+          {<span class="hljs-string">name:</span> <span class="hljs-string">"blue400"</span>, <span class="hljs-string">contrast:</span> <span class="hljs-number">8</span>, <span class="hljs-string">value:</span> <span class="hljs-string">"#1c0ad1"</span>}
+        ]
+      }
+    ]
+    </code></pre>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-theme-contrastcolorpairs"><code>Theme.contrastColorPairs</code></h3>
+    <p>Simplified format as an object of key-value pairs. Property is equal to the <a href="#docs-Ratios-as-an-array">generated</a> or <a href="#docs-Ratios-as-an-object">user-defined name</a> for each generated value.</p>
+    <pre><code class="lang-js">{
+      <span class="hljs-string">"gray100"</span>: <span class="hljs-string">"#e0e0e0"</span><span class="hljs-comment">;</span>
+      <span class="hljs-string">"gray200"</span>: <span class="hljs-string">"#a0a0a0"</span><span class="hljs-comment">;</span>
+      <span class="hljs-string">"gray300"</span>: <span class="hljs-string">"#808080"</span><span class="hljs-comment">;</span>
+      <span class="hljs-string">"gray400"</span>: <span class="hljs-string">"#646464"</span><span class="hljs-comment">;</span>
+      <span class="hljs-string">"blue100"</span>: <span class="hljs-string">"#b18cff"</span><span class="hljs-comment">;</span>
+      <span class="hljs-string">"blue200"</span>: <span class="hljs-string">"#8d63ff"</span><span class="hljs-comment">;</span>
+      <span class="hljs-string">"blue300"</span>: <span class="hljs-string">"#623aff"</span><span class="hljs-comment">;</span>
+      <span class="hljs-string">"blue400"</span>: <span class="hljs-string">"#1c0ad1"</span><span class="hljs-comment">;</span>
+    }
+    </code></pre>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-theme-contrastcolorvalues"><code>Theme.contrastColorValues</code></h3>
+    <p>Returns all color values in a flat array.</p>
+    <pre><code class="lang-js">[
+      <span class="hljs-string">"#e0e0e0"</span>,
+      <span class="hljs-string">"#a0a0a0"</span>,
+      <span class="hljs-string">"#808080"</span>,
+      <span class="hljs-string">"#646464"</span>,
+      <span class="hljs-string">"#b18cff"</span>,
+      <span class="hljs-string">"#8d63ff"</span>,
+      <span class="hljs-string">"#623aff"</span>,
+      <span class="hljs-string">"#1c0ad1"</span>
+    ]
+    </code></pre>
+    <hr class="spectrum-Divider spectrum-Divider--sizeM">
+    <h2 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy" id="docs-leonardo-with-css-variables">Leonardo with CSS variables</h2>
+    <p>Here are a few examples of how you can utilize Leonardo to dynamically create or modify CSS variables for your application.</p>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-vanilla-js">Vanilla JS</h3>
+    <pre><code class="lang-js"><span class="hljs-built_in">let</span> varPrefix = '--';
+    
+    // Iterate each <span class="hljs-built_in">color</span> object
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">let</span> i = <span class="hljs-number">0</span>; i &lt; myTheme.<span class="hljs-built_in">length</span>; i++) {
+      // Iterate each value object within each <span class="hljs-built_in">color</span> object
+      <span class="hljs-keyword">for</span>(<span class="hljs-built_in">let</span> j = <span class="hljs-number">0</span>; j &lt; myTheme[i].<span class="hljs-built_in">values</span>.<span class="hljs-built_in">length</span>; j++) {
+        // output <span class="hljs-string">"name"</span> of <span class="hljs-built_in">color</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">prefix</span>
+        <span class="hljs-built_in">let</span> <span class="hljs-built_in">key</span> = myTheme[i].<span class="hljs-built_in">values</span>[j].name;
+        <span class="hljs-built_in">let</span> prop = varPrefix.<span class="hljs-built_in">concat</span>(<span class="hljs-built_in">key</span>);
+        // output value of <span class="hljs-built_in">color</span>
+        <span class="hljs-built_in">let</span> value = myTheme[i].<span class="hljs-built_in">values</span>[j].value;
+        // create CSS property with name <span class="hljs-keyword">and</span> value
+        document.documentElement.<span class="hljs-built_in">style</span>
+          .setProperty(prop, value);
+      }
+    }
+    </code></pre>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-react">React</h3>
+    <p>Create a new Theme component <code>Theme.js</code> with your parameters:</p>
+    <pre><code class="lang-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> Leo <span class="hljs-keyword">from</span> <span class="hljs-string">'@adobe/leonardo-contrast-colors'</span>;
+    
+    <span class="hljs-keyword">const</span> Theme = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {  
+      <span class="hljs-keyword">let</span> gray = <span class="hljs-keyword">new</span> Leo.BackgroundColor({
+        <span class="hljs-attr">name</span>: <span class="hljs-string">'gray'</span>,
+        <span class="hljs-attr">colorKeys</span>: [<span class="hljs-string">'#cacaca'</span>],
+        <span class="hljs-attr">ratios</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">8</span>]
+      });
+    
+      <span class="hljs-keyword">let</span> blue = <span class="hljs-keyword">new</span> Leo.Color({
+        <span class="hljs-attr">name</span>: <span class="hljs-string">'blue'</span>,
+        <span class="hljs-attr">colorKeys</span>: [<span class="hljs-string">'#5CDBFF'</span>, <span class="hljs-string">'#0000FF'</span>],
+        <span class="hljs-attr">ratios</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">4.5</span>]
+      });
+    
+      <span class="hljs-keyword">let</span> red = <span class="hljs-keyword">new</span> Leo.Color({
+        <span class="hljs-attr">name</span>: <span class="hljs-string">'red'</span>,
+        <span class="hljs-attr">colorKeys</span>: [<span class="hljs-string">'#FF9A81'</span>, <span class="hljs-string">'#FF0000'</span>],
+        <span class="hljs-attr">ratios</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">4.5</span>]
+      });
+    
+      <span class="hljs-keyword">const</span> adaptiveTheme = <span class="hljs-keyword">new</span> Leo.Theme({
+        <span class="hljs-attr">colors</span>: [
+          gray, 
+          blue,
+          red
+        ], 
+        <span class="hljs-attr">backgroundColor</span>: gray, 
+        <span class="hljs-attr">lightness</span>: <span class="hljs-number">97</span>,
+        <span class="hljs-attr">contrast</span>: <span class="hljs-number">1</span>,
+      });
+    
+      <span class="hljs-keyword">return</span> adaptiveTheme;
+    }
+    
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Theme;
+    </code></pre>
+    <p>Then import your Theme component at the top level of your application, and pass the Theme as a property of your app:</p>
+    <pre><code class="lang-js"><span class="hljs-comment">// index.js</span>
+    <span class="hljs-keyword">import</span> Theme <span class="hljs-keyword">from</span> <span class="hljs-string">'./components/Theme'</span>;
+    
+    ReactDOM.render(
+      &lt;React.StrictMode&gt;
+        &lt;App adaptiveTheme={Theme()}/&gt;
+      &lt;/React.StrictMode&gt;,
+      document.getElementById(<span class="hljs-string">'root'</span>)
+    );
+    </code></pre>
+    <p>In your App.js file, import <code>useTheme</code> from <code>css-vars-hook</code> and provide the following within your App function in order to format Leonardo&#39;s output in the structure required for <code>css-vars-hook</code>. </p>
+    <pre><code class="lang-js"><span class="hljs-comment">// App.js</span>
+    <span class="hljs-keyword">import</span> {useTheme} <span class="hljs-keyword">from</span> <span class="hljs-string">'css-vars-hook'</span>;
+    
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params">props</span>) </span>{
+      <span class="hljs-keyword">const</span> [lightness, setLightness] = useState(<span class="hljs-number">100</span>);
+      <span class="hljs-keyword">const</span> [contrast, setContrast] = useState(<span class="hljs-number">1</span>);
+    
+      <span class="hljs-keyword">const</span> _createThemeObject = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        <span class="hljs-keyword">let</span> themeObj = {}
+        props.adaptiveTheme.contrastColors.forEach(<span class="hljs-function"><span class="hljs-params">color</span> =&gt;</span> {      
+          <span class="hljs-keyword">if</span>(color.name) {
+            <span class="hljs-keyword">let</span> values = color.values;
+            values.forEach(<span class="hljs-function"><span class="hljs-params">instance</span> =&gt;</span> {
+              <span class="hljs-keyword">let</span> name = instance.name;
+              <span class="hljs-keyword">let</span> val = instance.value;
+              themeObj[name] = val;
+            });
+          } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// must be the background</span>
+            <span class="hljs-keyword">let</span> name = <span class="hljs-string">'background'</span>
+            <span class="hljs-keyword">let</span> val = color.background;
+            themeObj[name] = val;
+          }
+        })
+        <span class="hljs-keyword">return</span> themeObj;
+      };
+    
+      <span class="hljs-keyword">const</span> theme = useState( _createThemeObject() );
+    
+      <span class="hljs-keyword">const</span> {setRef, setVariable} = useTheme(theme);
+    
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> 
+          <span class="hljs-attr">className</span>=<span class="hljs-string">"App"</span> 
+          <span class="hljs-attr">ref</span>=<span class="hljs-string">{setRef}</span>
+          &gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+      )
+    }
+    </code></pre>
+    <p>To make your application adaptive, include a function for updating your theme before your return function:</p>
+    <pre><code class="lang-js">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_updateColorVariables</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">let</span> themeInstance = _createThemeObject();    
+    
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> [key, value] <span class="hljs-keyword">of</span> <span class="hljs-built_in">Object</span>.entries( themeInstance )) {
+          setVariable(key, value);
+        }
+      };
+      <span class="hljs-comment">// call function to set initial values</span>
+      _updateColorVariables();
+    </code></pre>
+    <p>Finally, reference this function and set the theme parameters when your users interact with slider components (do the same for Contrast):</p>
+    <pre><code class="lang-js">&lt;<span class="hljs-selector-tag">label</span> htmlFor=<span class="hljs-string">"lightness"</span>&gt;
+      Lightness
+    &lt;/label&gt;
+    &lt;<span class="hljs-selector-tag">input</span>
+      value={lightness}
+      id=<span class="hljs-string">"lightness"</span>
+      type=<span class="hljs-string">"range"</span>
+      min={ sliderMin }
+      max={ sliderMax }
+      step=<span class="hljs-string">"1"</span>
+      onChange={e =&gt; {
+        setLightness(e<span class="hljs-selector-class">.target</span><span class="hljs-selector-class">.value</span>)
+        props<span class="hljs-selector-class">.adaptiveTheme</span><span class="hljs-selector-class">.lightness</span> = e<span class="hljs-selector-class">.target</span><span class="hljs-selector-class">.value</span>
+        _updateColorVariables()
+      }}
+    /&gt;
+    &lt;<span class="hljs-selector-tag">label</span> htmlFor=<span class="hljs-string">"contrast"</span>&gt;
+      Contrast
+    &lt;/label&gt;
+    &lt;<span class="hljs-selector-tag">input</span>
+      value={contrast}
+      id=<span class="hljs-string">"contrast"</span>
+      type=<span class="hljs-string">"range"</span>
+      min=<span class="hljs-string">"0.25"</span>
+      max=<span class="hljs-string">"3"</span>
+      step=<span class="hljs-string">"0.025"</span>
+      onChange={e =&gt; {
+        setContrast(e<span class="hljs-selector-class">.target</span><span class="hljs-selector-class">.value</span>)
+        props<span class="hljs-selector-class">.adaptiveTheme</span><span class="hljs-selector-class">.contrast</span> = e<span class="hljs-selector-class">.target</span><span class="hljs-selector-class">.value</span>
+        _updateColorVariables()
+      }}
+    /&gt;
+    </code></pre>
+    <h3 class="spectrum-Heading spectrum-Heading--sizeS" id="docs-dark-mode-support-in-react">Dark mode support in React</h3>
+    <p>Include the following in your App.js file to listen for dark mode. This will pass a different lightness value (of your choice) to Leonardo. It&#39;s recommended to restrict the lightness range based on mode in order to avoid inaccessible ranges and to provide a better overall experience</p>
+    <pre><code class="lang-js">const mq = window.<span class="hljs-built_in">match</span>Media('(prefers-color-scheme: dark)');
+    // Update lightness and slider <span class="hljs-keyword">min</span>/<span class="hljs-keyword">max</span> <span class="hljs-keyword">to</span> be conditional:
+    const [lightness, <span class="hljs-built_in">set</span>Lightness] = useState((mq.matches) ? <span class="hljs-number">8</span> : <span class="hljs-number">100</span>);
+    const [sliderM<span class="hljs-keyword">in</span>, <span class="hljs-built_in">set</span>SliderM<span class="hljs-keyword">in</span>] = useState((mq.matches) ? <span class="hljs-number">0</span> : <span class="hljs-number">80</span>);
+    const [sliderMax, <span class="hljs-built_in">set</span>SliderMax] = useState((mq.matches) ? <span class="hljs-number">30</span> : <span class="hljs-number">100</span>);
+    
+    // Listener <span class="hljs-keyword">to</span> update when <span class="hljs-keyword">user</span> device mode changes:
+    mq.addEventListener('change', function (evt) {
+      props.adaptiveTheme.lightness = ((mq.matches) ? <span class="hljs-number">11</span> : <span class="hljs-number">100</span>)
+      <span class="hljs-built_in">set</span>Lightness((mq.matches) ? <span class="hljs-number">11</span> : <span class="hljs-number">100</span>)
+      <span class="hljs-built_in">set</span>SliderM<span class="hljs-keyword">in</span>((mq.matches) ? <span class="hljs-number">0</span> : <span class="hljs-number">80</span>);
+      <span class="hljs-built_in">set</span>SliderMax((mq.matches) ? <span class="hljs-number">30</span> : <span class="hljs-number">100</span>);
+    });
+    </code></pre>
+    <hr class="spectrum-Divider spectrum-Divider--sizeM">
+    <h2 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy" id="docs-why-are-not-all-contrast-ratios-available">Why are not all contrast ratios available?</h2>
+    <p>You may notice the tool takes an input (target ratio) but most often outputs a contrast ratio slightly higher. This has to do with the available colors in the RGB color space, and the math associated with calculating these ratios.</p>
+    <p>For example let&#39;s look at blue and white.
+       Blue: rgb(0, 0, 255)
+       White: rgb(255, 255, 255)
+       Contrast ratio: <strong>8.59</strong>:1
+    </p>
+    <p>If we change any one value in the RGB channel for either color, the ratio changes:
+       Blue: rgb(0, <strong>1</strong>, 255)
+       White: rgb(255, 255, 255)
+       Contrast ratio: <strong>8.57</strong>:1
+    </p>
+    <p>If 8.58 is input as the target ratio with the starting color of blue, the output will not be exact. This is exaggerated by the various colorspace interpolations.</p>
+    <p>Since the WCAG requirement is defined as a <em>minimum contrast requirement</em>, it should be fine to generate colors that are a little <em>more</em> accessible than the minimum.</p>
+    <hr class="spectrum-Divider spectrum-Divider--sizeM">
+    <h2 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy" id="docs-chroma-js">Chroma.js</h2>
+    <p>This project is currently built using <a href="https://gka.github.io/chroma.js/">Chroma.js</a> with custom extensions to support<a href="https://gramaz.io/d3-cam02/">CIE CAM02</a>. Additional functionality is added in Leonardo to enhance chroma scales so that they properly order colors by lightness and correct the lightness of the scale based on HSLuv.</p>
+    <h2 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy" id="docs-contributing">Contributing</h2>
+    <p>Contributions are welcomed! Read the <a href="">Contributing Guide</a> for more information.</p>
+    <h2 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy" id="docs-development">Development</h2>
+    <p>You can run tests and watch for changes with:</p>
+    <pre><code class="lang-sh"><span class="hljs-attribute">yarn dev</span>
+    </code></pre>
+    <h2 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy" id="docs-licensing">Licensing</h2>
+    <p>This project is licensed under the Apache V2 License. See <a href="LICENSE">LICENSE</a> for more information.</p>
+  </div>
+
+
+  <footer style="margin-top: 32px;">
+  <hr class="spectrum-Divider spectrum-Divider--sizeS">
+  <p class="spectrum-Body spectrum-Body--size-XS">
+    Leonardo is an  
+    <a class="spectrum-Link" href="https://github.com/adobe" target="_blank">
+      Adobe Open Source
+    </a> project.
+  </p>
+</footer>
+</div>
+    <div class="sideNavContent sideNavContent--splitView" id="learnContent">
+  <div class="sideNavContent_main">
+    <h1 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy">Learn Leonardo</h1>
+    <hr class="spectrum-Divider spectrum-Divider--sizeM">
+
+    <h2 class="spectrum-Heading spectrum-Heading--sizeL spectrum-Heading--heavy" id="colorSystem">
+      Color
+    </h2>
+    <p class="spectrum-Body spectrum-Body--sizeM">
+      The color system tab is for defining your color palette and the color scales for each color.
+    </p>
+    <p class="spectrum-Body spectrum-Body--sizeM">
+      Your <strong>color palette</strong> represents each primary color of your system. You can evaluate the 
+      <attr title="Color harmony is the relationship between colors on a color wheel">
+        color harmony
+      </attr>
+      of your palette. The color wheel is available to view in a variety of 
+      <a class="spectrum-Link" href="#">
+        color spaces
+      </a>.
+    </p>
+    <p class="spectrum-Body spectrum-Body--sizeM">
+      Your <strong>color scales</strong> are a full value scale for each of your palette colors. This allows you
+      to design color as a fluid continuum of tints and shades. 
+    </p>
+    <p class="spectrum-Body spectrum-Body--sizeM">
+      Color scales are defined by three parts: Color keys, interpolation colorspace, and smoothing.
+    </p>
+
+    <h3 class="spectrum-Heading spectrum-Heading--sizeM spectrum-Heading--heavy" id="colorKeys">
+      Color keys
+    </h3>
+    <p class="spectrum-Body spectrum-Body--sizeM">
+      Color keys are specific colors that you want the include within the scale. Each color key is automatically sorted 
+      and placed on the gradient by it's lightness. This is to ensure the scale follows a consistent change in lightness 
+      from dark to light colors.
+    </p>
+
+    <h3 class="spectrum-Heading spectrum-Heading--sizeM spectrum-Heading--heavy" id="interpolationColorspace">
+      Interpolation colorspace
+    </h3>
+    <p class="spectrum-Body spectrum-Body--sizeM">
+      This specifies which color space you wish to interpolate between your color keys, black, and white. Color is defined
+      differently within each color space, so the resulting gradient of your color scale will appear differently for each. 
+    </p>
+
+    <h3 class="spectrum-Heading spectrum-Heading--sizeM spectrum-Heading--heavy" id="smoothing">
+      Smoothing
+    </h3>
+    <p class="spectrum-Body spectrum-Body--sizeM">
+      Leonardo offers 
+      <attr>
+        catmull-rom
+      </attr>
+      smoothing for all interpolation color spaces. By default, interpolation is linear. In some cases, this will yield good results.
+      For other cases, smoothing provides an adjustment to the interpolation that makes the transition of colors within your color 
+      scale appear much more balanced and smooth.
+    </p>
+
+
+  </div>
+  <div class="sideNavContent_aside">
+    <ul class="aside_links">
+      <li> 
+        <a class="spectrum-Link spectrum-Link--quiet spectrum-Link--sizeM" href="#colorSystem"> Color </a> 
+        <ul class="aside_links--sublist">
+          <li> 
+            <a class="spectrum-Link spectrum-Link--quiet spectrum-Link--sizeM" href="#colorKeys"> Color keys </a> 
+          </li>
+          <li> 
+            <a class="spectrum-Link spectrum-Link--quiet spectrum-Link--sizeM" href="#interpolationColorspace"> Interpolation color space </a> 
+          </li>
+          <li> 
+            <a class="spectrum-Link spectrum-Link--quiet spectrum-Link--sizeM" href="#smoothing"> Smoothing </a> 
+          </li>    
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <footer style="margin-top: 32px;">
+  <hr class="spectrum-Divider spectrum-Divider--sizeS">
+  <p class="spectrum-Body spectrum-Body--size-XS">
+    Leonardo is an  
+    <a class="spectrum-Link" href="https://github.com/adobe" target="_blank">
+      Adobe Open Source
+    </a> project.
+  </p>
+</footer>
+</div>
+    <div class="sideNavContent" id="articlesContent">
+  <h1 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy">Articles</h1>
+  <hr class="spectrum-Divider spectrum-Divider--sizeM">
+
+  <section class="articleCards-Wrapper">
+    
+    <a href="https://uxdesign.cc/creating-contrast-based-themes-with-leonardo-32b6219a090f" target="_blank" class="articleCard">
+      <img class="articleCard_image" src="https://miro.medium.com/max/2000/1*b4nHj0VH62N6DMro8C1pug@2x.png">
+      <div class="articleCard_content">
+        <h2 class="spectrum-Heading spectrum-Heading--sizeXS">Creating contrast-based themes with Leonardo</h2>
+        <p class="spectrum-Body spectrum-Body--size-XS articleCard_ref">Medium.com</p>  
+      </div>
+    </a>
+    
+    <a href="https://medium.com/@NateBaldwin/leonardo-an-open-source-contrast-based-color-generator-92d61b6521d2" target="_blank" class="articleCard">
+      <img class="articleCard_image" src="https://miro.medium.com/max/5636/1*rmcnZeNiITkATulEGyMZOA@2x.png">
+      <div class="articleCard_content">
+        <h2 class="spectrum-Heading spectrum-Heading--sizeXS">Leonardo: an open source contrast-based color generator</h2>
+        <p class="spectrum-Body spectrum-Body--size-XS articleCard_ref">Medium.com</p>  
+      </div>
+    </a>
+
+    <a href="https://medium.com/thinking-design/adaptive-color-in-design-systems-7bcd2e664fa0" target="_blank" class="articleCard">
+      <img class="articleCard_image" src="https://miro.medium.com/max/2000/0*s6SGNJaFjvdnp7x3.jpg">
+      <div class="articleCard_content">
+        <h2 class="spectrum-Heading spectrum-Heading--sizeXS">Adaptive Color in Design Systems: Part one</h2>
+        <p class="spectrum-Body spectrum-Body--size-XS articleCard_ref">Medium.com</p>  
+      </div>
+    </a>
+    <a href="https://medium.com/thinking-design/introducing-adaptive-color-palettes-111b5842fc88" target="_blank" class="articleCard">
+      <img class="articleCard_image" src="https://miro.medium.com/max/2000/1*9SLnj32PJmvw_WP3V6mODA.png">
+      <div class="articleCard_content">
+        <h2 class="spectrum-Heading spectrum-Heading--sizeXS">Adaptive Color in Design Systems: Part two</h2>
+        <p class="spectrum-Body spectrum-Body--size-XS articleCard_ref">Medium.com</p>  
+      </div>
+    </a>
+    <a href="https://medium.com/thinking-design/adaptive-color-in-spectrum-adobes-design-system-feeeec89a2c7" target="_blank" class="articleCard">
+      <img class="articleCard_image" src="https://miro.medium.com/max/2000/1*QhGyZ9TJDFy_pWwnhCcZqA.png">
+      <div class="articleCard_content">
+        <h2 class="spectrum-Heading spectrum-Heading--sizeXS">Adaptive Color in Design Systems: Part three</h2>
+        <p class="spectrum-Body spectrum-Body--size-XS articleCard_ref">Medium.com</p>  
+      </div>
+    </a>
+
+    <a href="https://medium.com/thinking-design/colorimetry-and-the-cartography-of-color-415ef5315c0a" target="_blank" class="articleCard">
+      <img class="articleCard_image" src="https://miro.medium.com/max/18682/1*Zd-IUfC39IsR9WYAPGAhEw.jpeg">
+      <div class="articleCard_content">
+        <h2 class="spectrum-Heading spectrum-Heading--sizeXS">Colorimetry and the Cartography of Color</h2>
+        <p class="spectrum-Body spectrum-Body--size-XS articleCard_ref">Medium.com</p>  
+      </div>
+    </a>
+
+  </section>
+
+  <footer style="margin-top: 32px;">
+  <hr class="spectrum-Divider spectrum-Divider--sizeS">
+  <p class="spectrum-Body spectrum-Body--size-XS">
+    Leonardo is an  
+    <a class="spectrum-Link" href="https://github.com/adobe" target="_blank">
+      Adobe Open Source
+    </a> project.
+  </p>
+</footer>
+</div>
+    <div class="sideNavContent" id="contributeContent">
+  <h1 class="spectrum-Heading spectrum-Heading--sizeXL spectrum-Heading--heavy">Contribute</h1>
+  <hr class="spectrum-Divider spectrum-Divider--sizeM">
+
+  <footer style="margin-top: 32px;">
+  <hr class="spectrum-Divider spectrum-Divider--sizeS">
+  <p class="spectrum-Body spectrum-Body--size-XS">
+    Leonardo is an  
+    <a class="spectrum-Link" href="https://github.com/adobe" target="_blank">
+      Adobe Open Source
+    </a> project.
+  </p>
+</footer>
+</div>
+  </main>
+
+</div>
+    
+    
+      <!-- Palette Tab -->
+<div id="palette" class="AppTab appFramePanelLeft"> <!-- themeWorkspace -->
+  <div class="spectrum-Panel spectrum-Panel--left">
+    <div class="spectrum-Panel-ContentWrapper">
+      <div class="spectrum-Panel-Tabs">
+        <div class="spectrum-Tabs spectrum-Tabs--horizontal spectrum-Tabs--quiet">
+          <div id="tabPanelColorScales" class="spectrum-Tabs-item panel-Tabs-item" tabindex="0" onclick="openPanelTab(event, 'colorScales')">
+            <label class="spectrum-Tabs-itemLabel">Color scales</label>
+          </div>
+          <div id="tabPanelContrastSwatches" class="spectrum-Tabs-item panel-Tabs-item" tabindex="0" onclick="openPanelTab(event, 'contrastSwatches')">
+            <label class="spectrum-Tabs-itemLabel">Lightness stops</label>
+          </div>
+        </div>
+      </div>
+      <div id="colorScales" class="paneltabcontent">
+        <div class="spectrum-Panel-Item" style="flex-shrink: 0;">
+          <div class="spectrum-ActionGroup">
+            <button class="spectrum-ActionButton spectrum-ActionButton--sizeM spectrum-ActionGroup-item" onClick="addColorScaleUpdate()">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Add Color">
+                <use xlink:href="#spectrum-icon-18-Add"></use>
+              </svg>
+              <span class="spectrum-ActionButton-label">Add color</span>
+            </button>
+            <label tabindex="0" id="image-upload-button" for="image-upload" class="spectrum-ActionButton spectrum-ActionButton--sizeM spectrum-ActionGroup-item">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Add Color">
+                <use xlink:href="#spectrum-icon-18-Image"></use>
+              </svg>
+              <span class="spectrum-ActionButton-label">Extract from image</span>
+            </label>
+            <input id="image-upload" type="file" style="display:none;" onInput="addColorsFromImage()">
+            <button title="Sort ratios ascending" id="sort" onclick="sortColorScales()" class="spectrum-ActionButton spectrum-ActionButton--sizeM spectrum-ActionGroup-item">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Icon spectrum-Icon--sizeS sortIcon" focusable="false" aria-hidden="true" aria-label="Sort">
+                <use xlink:href="#spectrum-css-icon-Arrow100"></use>
+              </svg>
+              <span class="spectrum-ActionButton-label">Sort</span>
+            </button>
+          </div>
+          <div id="image-preview"></div>
+
+        </div>
+
+        <div id="themeColorWrapper">
+          <div id="themeColorEmptyState" class="spectrum-IllustratedMessage">  
+            <h2 class="spectrum-Typography spectrum-Heading spectrum-Heading3 spectrum-IllustratedMessage-heading">Add a color scale to begin</h2> 
+          </div>
+        </div>
+
+      </div>
+
+      <div id="contrastSwatches" class="paneltabcontent">
+        <div class="spectrum-Panel-Item ">
+          <div class="spectrum-ActionGroup spectrum-ActionGroup--spaced">
+            <button id="addRatio" onclick="addRatio()" class="spectrum-ActionButton spectrum-ActionButton--sizeM  spectrum-ActionGroup-item">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Add lightness stop">
+                <use xlink:href="#spectrum-icon-18-Add"></use>
+              </svg>
+              <span class="spectrum-ActionButton-label">Add</span>
+            </button>
+            <button id="bulkLightnessButton" onclick="addLightnessBulk()" class="spectrum-ActionButton spectrum-ActionButton--sizeM  spectrum-ActionGroup-item">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Import from colors">
+                <use xlink:href="#spectrum-icon-18-BoxAdd"></use>
+              </svg>
+              <span class="spectrum-ActionButton-label">Import</span>
+            </button>
+            <button title="Sort ratios ascending" id="sort" onclick="sortRatios()" class="spectrum-ActionButton spectrum-ActionButton--sizeM  spectrum-ActionGroup-item">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Icon spectrum-Icon--sizeS sortIcon" focusable="false" aria-hidden="true" aria-label="Sort">
+                <use xlink:href="#spectrum-css-icon-Arrow100"></use>
+              </svg>
+              <span class="spectrum-ActionButton-label">Sort</span>
+            </button>
+            <select class="spectrum-Picker spectrum-Picker--sizeM spectrum-ActionGroup-item" name="distribute" id="distribute">
+              <option value="none">Distribute</option>
+              <option value="ratios">Contrast ratios</option>
+              <option value="luminosity">Lightness</option>
+            </select>  
+          </div>
+  
+  
+          <div class="spectrum-Panel-Item--row">
+            <div id="luminosityGradient"></div>
+            <div id="ratioInput-wrapper">
+              <div class="ratioGrid">
+                <label class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM ratioGrid--ratio">Contrast ratio</label>  
+                <label class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM ratioGrid--luminosity">Lightness</label>  
+                <label class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM ratioGrid--status">Status</label>  
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="colorConfigPanel" class="spectrum-Panel-ContentWrapper">
+      <!-- Dynaic sidebar content will appear here -->
+    </div>
+
+  </div>
+
+  <div id="" class=""> <!-- appFramePanelRight -->
+  
+    <main id="colorMainContent-Wrapper">
+      
+      <div id="colorDetails">
+        <!-- Dnynamic generated content will appear here -->
+      </div>
+  
+      <div id="" class="spectrum-Content-Tabs">
+        <div class="spectrum-Tabs spectrum-Tabs--horizontal spectrum-Tabs--quiet">
+          <div id="tabColorWheel" class="spectrum-Tabs-item color-Tabs-item" tabindex="0" onclick="openColorTab(event, 'previewWrapper')">
+            <label class="spectrum-Tabs-itemLabel">Theme colors</label>
+          </div>
+          <div id="tabPaletteCharts" class="spectrum-Tabs-item color-Tabs-item" tabindex="0" onclick="openColorTab(event, 'paletteChartsWrapper')">
+            <label class="spectrum-Tabs-itemLabel">Chromaticity</label>
+          </div>
+          <div id="tabPaletteContrastCharts" class="spectrum-Tabs-item color-Tabs-item" tabindex="0" onclick="openColorTab(event, 'paletteContrastChartsWrapper')">
+            <label class="spectrum-Tabs-itemLabel">Lightness</label>
+          </div>
+          <div id="tabPaletteModel" class="spectrum-Tabs-item color-Tabs-item" tabindex="0" onclick="openColorTab(event, 'paletteModelWrapper')">
+            <label class="spectrum-Tabs-itemLabel">3d model</label>
+          </div>
+        </div>
+      </div>
+  
+      <div id="previewWrapper" class="colorTabsWrapper">
+        <div id="themeOutputs">
+          <!-- Generated colors will appear here -->
+        </div>
+      </div>
+  
+      <div id="paletteContrastChartsWrapper" class="colorTabsWrapper">
+        <div class="paletteContrastChartsGrid">
+  
+          <div class="spectrum-Form spectrum-Form--row" style="justify-content: space-between;">
+            <h5 class="spectrum-Heading spectrum-Heading--sizeXXS">Monochromatic preview (ordered by contrast ascending)</h5>
+  
+            <div class="spectrum-Form-item spectrum-Form-item--row">
+              <label for="chartLineType" class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM spectrum-FieldLabel--left">Chart line type</label>
+                <select class="spectrum-Picker spectrum-Picker--sizeM" name="chartLineType" id="chartLineType">
+                  <option value="step">Steps</option>
+                  <option value="curve">Curve</option>
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Picker-icon spectrum-UIIcon-ChevronDownMedium spectrum-Picker-icon">
+                    <use xlink:href="#spectrum-css-icon-ChevronDownMedium"></use>
+                  </svg>
+              </select>
+            </div>
+          </div>
+  
+          <div id="justifiedWrapper">
+            <div id="swatchesOutputs"></div>
+          </div>
+  
+          
+          <div id="contrastChartsWrapper">
+            <div>
+              <h5 class="spectrum-Heading spectrum-Heading--sizeXXS">Contrast</h5>
+              <div class="panel-SubTab-Content" id="contrastChart"></div>
+            </div>
+            <div>
+              <h5 class="spectrum-Heading spectrum-Heading--sizeXXS">Lightness</h5>
+              <div class="panel-SubTab-Content" id="luminosityChart"></div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+      <div id="paletteChartsWrapper" class="colorTabsWrapper">
+        <div class="paletteChartsGrid">
+          <div class="chartsColumn--left">
+            <div id="colorWheel--controlsWrapper">
+              <div id="colorWheel">
+                <div class="polarPathsWrapper" id="colorWheelPaths"></div>
+                <div class="polarPathsWrapper" id="colorWheelLinesWrapper"></div>
+              </div>
+    
+              <div class="spectrum-Form" id="chartsControls">
+                <h3 class="spectrum-Heading spectrum-Heading--sizeXXS ">Color wheel settings</h3>
+                <div class="spectrum-Form-item">
+                  <div id="colorWheelLightnessWrapper" class="spectrum-Slider">
+                    <div class="spectrum-Slider-labelContainer">
+                      <label class="spectrum-Slider-label" id="colorWheelLightnessLabel" for="colorWheelLightness">Color wheel lightness</label>
+                    </div>
+                    <input class="spectrum-Slider-controls" type="range" min="0" max="100" value="50" id="colorWheelLightness" name="colorWheelLightness">
+                  </div>
+                </div>
+    
+                <div class="spectrum-Form-item">
+                  <div class="spectrum-Switch">
+                    <input type="checkbox" class="spectrum-Switch-input" id="colorPathsSwitch">
+                    <span class="spectrum-Switch-switch"></span>
+                    <label class="spectrum-Switch-label" for="colorPathsSwitch">Show interpolation paths</label>
+                  </div>
+               </div>
+               <div class="spectrum-Form-item">
+                <div class="spectrum-Switch">
+                  <input type="checkbox" class="spectrum-Switch-input" id="colorHarmonyLinesSwitch" checked="">
+                  <span class="spectrum-Switch-switch"></span>
+                  <label class="spectrum-Switch-label" for="colorHarmonyLinesSwitch">Show color harmony lines</label>
+                </div>
+              </div>
+    
+                <div class="spectrum-Form-item">
+                  <label for="colorDotsMode" class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM spectrum-FieldLabel--left">Color dots display</label>
+                    <select class="spectrum-Picker spectrum-Picker--sizeM" name="colorDotsMode" id="colorDotsMode">
+                      <option value="colorScale">Scale cross-sections</option>
+                      <option value="colorKeys">All key colors</option>
+                      <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Picker-icon spectrum-UIIcon-ChevronDownMedium spectrum-Picker-icon">
+                        <use xlink:href="#spectrum-css-icon-ChevronDownMedium"></use>
+                      </svg>
+                    </select>
+                </div>
+    
+              </div>
+            </div>
+          </div>
+          <div class="chartsColumn--right">
+            <div class="chart--labelless" id="paletteInterpolationChart"></div>
+            <div class="chart--labelless" id="paletteInterpolationChart2"></div>  
+            <div class="chart--labelless" id="paletteInterpolationChart3"></div> 
+          </div>
+        </div>
+  
+      </div>
+  
+      <div id="paletteModelWrapper" class="colorTabsWrapper">
+        <div id="ModelExampleImage">
+          <img id="ModelImage_HSL" class="ModelImage is-hidden" src="HSL.c9ea8d21.png">
+          <img id="ModelImage_HSV" class="ModelImage is-hidden" src="HSV.6f95e47d.png">
+          <img id="ModelImage_RGB" class="ModelImage is-hidden" src="RGB.7dc7380f.png">
+          <img id="ModelImage_LAB" class="ModelImage is-hidden" src="LAB.5d5e46f5.png">
+          <img id="ModelImage_LCH" class="ModelImage is-hidden" src="LCH.9be987c9.png">
+          <img id="ModelImage_LUV" class="ModelImage is-hidden" src="LUV.3a4407c2.png">
+          <img id="ModelImage_OKLAB" class="ModelImage is-hidden" src="OKLAB.c4be3ae3.png">
+        </div>
+      </div>
+  
+      </main>
+  </div>
+
+</div>
+
+      <!-- Accessibility Tab -->
+<div id="a11yTab" class="AppTab appFramePanelLeft">
+  <div class="spectrum-Panel spectrum-Panel--left">
+
+    <div class="spectrum-Panel-ContentWrapper">
+      <div class="spectrum-Panel-Item spectrum-Panel-Item--noPadding">
+        <div class="spectrum-Panel-Item">
+          <div class="spectrum-Panel-Title">
+            <h3 class="spectrum-Typography spectrum-Heading spectrum-Heading--sizeXXS" id="{{ scaleType }}_nameLabel">
+              WCAG compliance
+            </h3>
+          </div>
+          <div class="spectrum-Form spectrum-Form--row">
+            <div class="spectrum-Form-item">
+              <label for="theme_complianceVersion" class="spectrum-FieldLabel spectrum-FieldLabel--left spectrum-Fieldlabel--sizeM">Version</label>
+              <select class="spectrum-Picker spectrum-Picker--sizeM spectrum-ActionGroup-item pickerCompliance" name="theme_complianceVersion" id="theme_complianceVersion">
+                <option value="2">2.0</option>
+                <!-- <option value="3">3.0</option> -->
+              </select>  
+            </div>
+            <div class="spectrum-Form-item">
+              <label for="theme_complianceLevel" class="spectrum-FieldLabel spectrum-FieldLabel--left spectrum-Fieldlabel--sizeM">Level</label>
+              <select class="spectrum-Picker spectrum-Picker--sizeM spectrum-ActionGroup-item pickerCompliance" name="theme_complianceLevel" id="theme_complianceLevel">
+                <option value="AA">AA</option>
+                <option value="AAA">AAA</option>
+              </select>  
+            </div>
+            <!-- future picker for rel lum vs APCA formulas -->
+          </div>
+        </div>
+
+         <div class="spectrum-Panel-Item">
+          <span class="spectrum-Heading spectrum-Heading--sizeXXS spectrum-Panel-Item-Title">Colorblind support</span>
+          <div class="spectrum-Form spectrum-Form--row">
+            <div class="spectrum-Form-item">
+              <div id="" class="spectrum-Slider">
+                <div class="spectrum-Slider-labelContainer">
+                  <label class="spectrum-Slider-label" id="{{ scaleType }}_ThresholdLabel" for="{{ scaleType }}_Threshold">Color difference (min DeltaE)</label>
+                  <div class="spectrum-Slider-value" role="textbox" aria-readonly="true" aria-labelledby="{{ scaleType }}_ThresholdLabel" id="{{ scaleType }}_ThresholdValue">11</div>
+                </div>
+                <input class="spectrum-Slider-controls" type="range" min="11" max="50" step="1" value="11" id="{{ scaleType }}_Threshold" name="{{ scaleType }}_Threshold">
+              </div>
+            </div>
+
+            <div class="spectrum-Form-item">
+              <div class="spectrum-Switch">
+                <input type="checkbox" class="spectrum-Switch-input" id="{{ scaleType }}_minContrast">
+                <span class="spectrum-Switch-switch"></span>
+                <label class="spectrum-Switch-label" for="{{ scaleType }}_minContrast">1.4.11 compliant</label>
+              </div>
+            </div>
+
+          </div>
+            <div class="spectrum-Form spectrum-Form--row">
+              <div class="spectrum-Form-item">
+                <label class="spectrum-Checkbox spectrum-Checkbox--sizeM">
+                  <input type="checkbox" class="spectrum-Checkbox-input" id="check_Protanopia" checked="">
+                  <span class="spectrum-Checkbox-box">
+                    <svg class="spectrum-Icon spectrum-UIIcon-Checkmark100 spectrum-Checkbox-checkmark" focusable="false" aria-hidden="true">
+                      <use xlink:href="#spectrum-css-icon-Checkmark100"></use>
+                    </svg>
+                    <svg class="spectrum-Icon spectrum-UIIcon-Dash100 spectrum-Checkbox-partialCheckmark" focusable="false" aria-hidden="true">
+                      <use xlink:href="#spectrum-css-icon-Dash100"></use>
+                    </svg>
+                  </span>
+                  <span class="spectrum-Checkbox-label">Protan (red/green)</span>
+                </label>
+              </div>
+              <div class="spectrum-Form-item">
+                <label class="spectrum-Checkbox spectrum-Checkbox--sizeM">
+                  <input type="checkbox" class="spectrum-Checkbox-input" id="check_Deuteranopia" checked="">
+                  <span class="spectrum-Checkbox-box">
+                    <svg class="spectrum-Icon spectrum-UIIcon-Checkmark100 spectrum-Checkbox-checkmark" focusable="false" aria-hidden="true">
+                      <use xlink:href="#spectrum-css-icon-Checkmark100"></use>
+                    </svg>
+                    <svg class="spectrum-Icon spectrum-UIIcon-Dash100 spectrum-Checkbox-partialCheckmark" focusable="false" aria-hidden="true">
+                      <use xlink:href="#spectrum-css-icon-Dash100"></use>
+                    </svg>
+                  </span>
+                  <span class="spectrum-Checkbox-label">Deutan (red/green)</span>
+                </label>
+              </div>
+            </div>
+            <div class="spectrum-Form spectrum-Form--row" style="margin-top: 0;">
+              <div class="spectrum-Form-item">
+                <label class="spectrum-Checkbox spectrum-Checkbox--sizeM">
+                  <input type="checkbox" class="spectrum-Checkbox-input" id="check_Tritanopia" checked="">
+                  <span class="spectrum-Checkbox-box">
+                    <svg class="spectrum-Icon spectrum-UIIcon-Checkmark100 spectrum-Checkbox-checkmark" focusable="false" aria-hidden="true">
+                      <use xlink:href="#spectrum-css-icon-Checkmark100"></use>
+                    </svg>
+                    <svg class="spectrum-Icon spectrum-UIIcon-Dash100 spectrum-Checkbox-partialCheckmark" focusable="false" aria-hidden="true">
+                      <use xlink:href="#spectrum-css-icon-Dash100"></use>
+                    </svg>
+                  </span>
+                  <span class="spectrum-Checkbox-label">Tritan (blue/yellow)</span>
+                </label>
+              </div>
+
+              <div class="spectrum-Form-item">
+                <label class="spectrum-Checkbox spectrum-Checkbox--sizeM">
+                  <input type="checkbox" class="spectrum-Checkbox-input" id="check_Achromatopsia">
+                  <span class="spectrum-Checkbox-box">
+                    <svg class="spectrum-Icon spectrum-UIIcon-Checkmark100 spectrum-Checkbox-checkmark" focusable="false" aria-hidden="true">
+                      <use xlink:href="#spectrum-css-icon-Checkmark100"></use>
+                    </svg>
+                    <svg class="spectrum-Icon spectrum-UIIcon-Dash100 spectrum-Checkbox-partialCheckmark" focusable="false" aria-hidden="true">
+                      <use xlink:href="#spectrum-css-icon-Dash100"></use>
+                    </svg>
+                  </span>
+                  <span class="spectrum-Checkbox-label">Achromatopsia</span>
+                </label>
+              </div>
+             
+            </div>
+         </div>
+
+      
+        </div>
+
+        <div class="spectrum-Panel-Item spectrum-Panel-Item--noPadding">
+
+        </div>
+   </div>
+
+  </div>
+
+
+  <main>
+    <div class="spectrum-Content-Tabs">
+      <div class="spectrum-Tabs spectrum-Tabs--horizontal spectrum-Tabs--quiet">
+        <div id="tabContrastingPairs" class="spectrum-Tabs-item a11y-Tabs-item" tabindex="0" onclick="openAccessibilityTab(event, 'contrastPairsWrapper')">
+          <label class="spectrum-Tabs-itemLabel">Contrasting pairs</label>
+        </div>
+        <div id="tabColorblindSafe" class="spectrum-Tabs-item a11y-Tabs-item" tabindex="0" onclick="openAccessibilityTab(event, 'colorBlindSafeWrapper')">
+          <label class="spectrum-Tabs-itemLabel">Colorblind safe</label>
+        </div>
+      </div>
+    </div>
+    <div id="contrastPairsWrapper" class="a11y-Tabs-content">
+      <div class="a11yTable">
+        <div class="a11yTable-row">
+          <div class="a11yTable-item">
+            Blue 100
+          </div>  
+          <div class="a11yTable-item a11yTable-card">
+            Blue 500
+          </div>  
+        </div>
+      </div>
+
+    </div>
+
+    <div id="colorBlindSafeWrapper" class="a11y-Tabs-content">
+      Color blind safe colors
+    </div>
+
+  </main>
+
+</div>
+
+      <!-- Theme Tab -->
+<div id="codeTab" class="AppTab appFramePanelLeft">
+
+  <main>
+    <div class="spectrum-Content-Tabs">
+      <div class="spectrum-Tabs spectrum-Tabs--horizontal spectrum-Tabs--quiet">
+        <div id="tabJSParameters" class="spectrum-Tabs-item main-Tabs-item" tabindex="0" onclick="openTab(event, 'parameterWrapper')">
+          <label class="spectrum-Tabs-itemLabel">Javascript</label>
+        </div>
+        <div id="tabCSS" class="spectrum-Tabs-item main-Tabs-item" tabindex="0" onclick="openTab(event, 'cssWrapper')">
+          <label class="spectrum-Tabs-itemLabel">CSS</label>
+        </div>
+        <div id="tabTokens" class="spectrum-Tabs-item main-Tabs-item" tabindex="0" onclick="openTab(event, 'tokensWrapper')">
+          <label class="spectrum-Tabs-itemLabel">Design tokens</label>
+        </div>
+      </div>
+    </div>
+    <div id="parameterWrapper" class="tabcontent">
+      <div class="tabHeader"> 
+        <div>
+          <h2 class="spectrum-Typography spectrum-Heading spectrum-Heading--sizeXS">Parameters for @adobe/leonardo-contrast-colors</h2>
+          <p class="spectrum-Body spectrum-Body--sizeXS">See 
+            <a href="#" class="spectrum-Link" target="_blank">Getting started</a> 
+            for information on how to use these parameters.
+          </p>
+        </div>
+        <button id="copyThemeParams" data-clipboard-target="#themeJSParams" class="spectrum-ActionButton spectrum-ActionButton--sizeM copyButton">
+          <span class="spectrum-ActionButton-label">Copy parameters</span>
+        </button>
+      </div>
+
+      <div class="themeOutputParams">
+        <pre id="themeJSParams" class="spectrum-Code spectrum-Code--sizeS"></pre>
+      </div>
+    </div>
+
+    <div id="cssWrapper" class="tabcontent">
+      <div class="tabHeader">
+        <h2 class="spectrum-Typography spectrum-Heading spectrum-Heading--sizeXS">CSS properties</h2>
+        <button id="copyThemeCSS" data-clipboard-target="#themeCSSParams" class="spectrum-ActionButton spectrum-ActionButton--sizeM copyButton">
+          <span class="spectrum-ActionButton-label">Copy CSS</span>
+        </button>
+      </div>
+
+      <div class="themeOutputParams">
+        <pre id="themeCSSParams" class="spectrum-Code spectrum-Code--sizeS"></pre>
+      </div>
+    </div>
+
+    <div id="tokensWrapper" class="tabcontent">
+      <div class="tabHeader">
+        <div>
+          <h2 class="spectrum-Typography spectrum-Heading spectrum-Heading--sizeXS">Design tokens</h2>
+          <p class="spectrum-Body spectrum-Body--sizeXS">See 
+            <a href="https://www.w3.org/community/design-tokens/" class="spectrum-Link" target="_blank">w3c working group spec</a> 
+            for details.
+          </p>
+        </div>
+        <button id="copyThemeTokens" data-clipboard-target="#themeTokensParams" class="spectrum-ActionButton spectrum-ActionButton--sizeM copyButton">
+          <span class="spectrum-ActionButton-label">Copy Tokens</span>
+        </button>
+      </div>
+
+      <div class="themeOutputParams">
+        <pre id="themeTokensParams" class="spectrum-Code spectrum-Code--sizeS"></pre>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="spectrum-Panel spectrum-Panel--left">
+    <div class="spectrum-Panel-ContentWrapper">
+      <div class="spectrum-Panel-Item">
+        <div class="spectrum-Panel-Title">
+          <h3 class="spectrum-Typography spectrum-Heading spectrum-Heading--sizeXXS" id="outputFormatHeading">
+            Output color format
+          </h3>
+        </div>
+        <div class="spectrum-Form spectrum-Form--spaced" style="margin-top: var(--spectrum-global-dimension-size-100)">
+          <div class="spectrum-Form-item">
+              <select class="spectrum-Picker" name="contrastMethod" id="colorOutputFormat" aria-labelledby="outputFormatHeading">
+                <option value="HEX">Hex</option>
+                <option value="RGB">RGB</option>
+                <option value="LAB">Lab</option>
+                <option value="LCH">LCh</option>
+                <option value="HSL">HSL</option>
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Picker-icon spectrum-UIIcon-ChevronDownMedium">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium"></use>
+              </svg>
+            </select>
+            <p class="spectrum-Body spectrum-Body--sizeXS" style="margin-top: var(--spectrum-global-dimension-size-100)">Output formats compliant with 
+              <a class="spectrum-Link" href="https://www.w3.org/TR/css-color-4/" target="_blank">CSS Color Module Level 4</a>
+              . Not all formats supported.</p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+</div>
+
+
+  
+    <div id="dialogOverlay" style="display: none;"></div>
+  
+    <div class="addBulkColorDialog spectrum-Dialog spectrum-Dialog--small spectrum-Dialog--confirmation" id="">
+  <div class="spectrum-Dialog-grid">
+    <h2 class="spectrum-Dialog-heading">Add bulk key colors to <span id="addBulkDialog_ScaleName">color scale</span></h2>
+    <hr class="spectrum-Divider spectrum-Divider--sizeM spectrum-Divider--horizontal spectrum-Dialog-divider">
+    <section class="spectrum-Dialog-content">
+      <span class="spectrum-Typography">
+        <p class="spectrum-Body4">Enter hex colors separated by comma or new line.</p>
+        <p class="spectrum-Body4">These will be added as <b>key colors<b> to this color scale. </b></b></p>
+      </span>
+      <div class="spectrum-Form spectrum-Form--labelsAbove">
+        <div class="spectrum-Form-item">
+          <label for="fieldLabelExample-lifestory" class="spectrum-Form-itemLabel">Colors (Hex)</label>
+          <div class="spectrum-Textfield spectrum-Textfield--multiline" style="width:100%;">
+            <textarea id="bulkColors" class="spectrum-Textfield-input" placeholder="Enter colors here"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="spectrum-ButtonGroup spectrum-Dialog-buttonGroup spectrum-Dialog-buttonGroup--noFooter">
+      <button class="spectrum-Button spectrum-Button--sizeM spectrum-Button--secondary spectrum-ButtonGroup-item" onclick="cancelBulk()">Cancel</button>
+      <button class="spectrum-Button spectrum-Button--sizeM spectrum-Button--cta spectrum-ButtonGroup-item" id="bulkAddButton">Add</button>
+
+    </div>
+  </div>
+</div>
+
+    <div class="spectrum-Dialog spectrum-Dialog--small spectrum-Dialog--confirmation" id="addBulkLightnessDialog">
+  <div class="spectrum-Dialog-grid">
+    <h2 class="spectrum-Dialog-heading">Import lightness stops</h2>
+    <hr class="spectrum-Divider spectrum-Divider--sizeM spectrum-Divider--horizontal spectrum-Dialog-divider">
+    <section class="spectrum-Dialog-content">
+      <span class="spectrum-Typography">
+        <p class="spectrum-Body4">Enter hex colors separated by comma or new line.</p>
+        <p class="spectrum-Body4">These will be converted and added as <b>lightness stops<b>. </b></b></p>
+      </span>
+      <div class="spectrum-Form spectrum-Form--labelsAbove">
+        <div class="spectrum-Form-item">
+          <label for="fieldLabelExample-lifestory" class="spectrum-Form-itemLabel">Colors (Hex)</label>
+          <div class="spectrum-Textfield spectrum-Textfield--multiline" style="width:100%;">
+            <textarea id="bulkLightnessColors" class="spectrum-Textfield-input" placeholder="Enter colors here"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="spectrum-ButtonGroup spectrum-Dialog-buttonGroup spectrum-Dialog-buttonGroup--noFooter">
+      <button class="spectrum-Button spectrum-Button--sizeM spectrum-Button--secondary spectrum-ButtonGroup-item" onclick="cancelLightnessBulk()">Cancel</button>
+      <button class="spectrum-Button spectrum-Button--sizeM spectrum-Button--cta spectrum-ButtonGroup-item" onclick="bulkLightnessInput()">Add</button>
+
+    </div>
+  </div>
+</div>
+
+    <div class="spectrum-Dialog spectrum-Dialog--small" id="addFromURLDialog">
+  <div class="spectrum-Dialog-header">
+    <h2 class="spectrum-Dialog-title">Import from URL</h2>
+  </div>
+  <div class="spectrum-Dialog-content">
+    <span class="spectrum-Typography">
+      <p class="spectrum-Body4">Enter the URL of your existing color to add to this theme.</p>
+      <p class="spectrum-Body4">The configurations will be added to a new color scale. </p>
+    </span>
+    <div class="spectrum-Form spectrum-Form--labelsAbove">
+      <div class="spectrum-Form-item">
+        <label for="fieldLabelExample-lifestory" class="spectrum-Form-itemLabel">Leonardo URL</label>
+        <div class="spectrum-Textfield">
+          <input type="url" id="addFromURLinput" class="spectrum-Textfield-input" placeholder="https://leonardocolor.io/">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="spectrum-Dialog-footer">
+    <button class="spectrum-Button spectrum-Button--secondary" onclick="cancelURL()">Cancel</button>
+    <button class="spectrum-Button spectrum-Button--cta" id="addFromURLButton">Import color</button>
+  </div>
+</div>
+    
+    <div id="toastCVDpreview" class="spectrum-Toast">
+  <div class="spectrum-Toast-body">
+    <div class="spectrum-Toast-content">You're in CVD simulation mode. Copying generated colors will not be affected by simulation mode.</div>
+    <button onclick="neverShowToast()" class="spectrum-Button spectrum-Button--sizeM spectrum-Button--overBackground spectrum-Button--quiet">
+      <span class="spectrum-Button-label">Don't show</span>
+    </button>
+  </div>
+  <div class="spectrum-Toast-buttons">
+    <button onclick="hideToast()" class="spectrum-ClearButton spectrum-ClearButton--medium spectrum-ClearButton--overBackground">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Icon spectrum-UIIcon-Cross100">
+        <use xlink:href="#spectrum-css-icon-Cross100"></use>
+      </svg>
+    </button>
+  </div>
+</div>  
+  </div>
+
+<script src="theme.73b2330f.js"></script>
+
+</body>
+</html>

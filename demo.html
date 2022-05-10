@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+Copyright 2019 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+-->
+
+<html>
+<head>
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-156021617-1"></script>
+  <script>window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+  dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'UA-156021617-1');</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Leonardo</title>
+  <meta property="og:title" content="Leonardo">
+  <meta name="description" content="Generate colors based on a desired contrast ratio.">
+  <meta property="og:description" content="Generate colors based on a desired contrast ratio.">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta name="twitter:card" content="repository-open-graph-leonardo">
+
+  <meta property="og:site_name" content="Leonardo">
+  <meta name="twitter:image:alt" content="Web interface for generating colors based on contrast ratio.">
+
+  <meta name="twitter:site" content="@Leonardo_Color">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.e4ba909c.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.4d3cb3f0.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.7bf70e77.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.f13d74ee.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.579e2f44.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.2a243903.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.62e1f51b.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.3be49adc.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.d25a9db2.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.49bd8aa2.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.e11d217b.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.2be17910.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.ed66619e.png">
+  <link rel="manifest" href="favicons/manifest.js">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.62e1f51b.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="https://use.typekit.net/sik3zpp.css">
+<link rel="stylesheet" href="demo.0182ebd7.css"></head>
+
+</head>
+<body class="demo">
+  <header>
+    <h2>Leonardo Demo App</h2>
+    <div id="controls">
+      <div class="form-Item">
+        <label for="sliderBrightness">Brightness</label>
+        <input id="sliderBrightness" name="sliderBrightness" type="range" step="1">
+      </div>
+      <div class="form-Item">
+        <label for="sliderContrast">Contrast</label>
+        <input id="sliderContrast" name="sliderContrast" type="range" min="1" max="5" step="0.05" value="1">
+      </div>
+      <div class="form-Item">
+        <label for="sliderSaturation">Saturation</label>
+        <input id="sliderSaturation" name="sliderSaturation" type="range" min="0" max="100" step="1" value="100">
+      </div>
+      <div class="form-Item">
+        <input id="darkMode" name="darkMode" type="checkbox"><label for="darkMode">Dark Mode</label>
+      </div>
+    </div>
+  </header>
+  <main id="demoApp">
+    <div id="master">
+      <div class="calendarTimeColumn">
+        <span class="calendarTime"> 7am </span>
+        <span class="calendarTime"> 8am </span>
+        <span class="calendarTime"> 9am </span>
+        <span class="calendarTime"> 10am </span>
+        <span class="calendarTime"> 11am </span>
+        <span class="calendarTime"> 12pm </span>
+        <span class="calendarTime"> 1pm </span>
+        <span class="calendarTime"> 2pm </span>
+        <span class="calendarTime"> 3pm </span>
+        <span class="calendarTime"> 4pm </span>
+        <span class="calendarTime"> 5pm </span>
+        <span class="calendarTime"> 6pm </span>
+        <span class="calendarTime"> 7pm </span>
+        <span class="calendarTime"> 8pm </span>
+        <span class="calendarTime"> 9pm </span>
+        <span class="calendarTime"> 10pm </span>
+        <span class="calendarTime"> 11pm </span>
+      </div>
+      <div class="calendarWrapper">
+        <div class="calendarHeader">
+          <h3>Calendar</h3>
+          <button href="#" class="buttonPrimary">New Event</button>
+        </div>
+        <div id="calendar"></div>
+      </div>
+    </div>
+    <div id="detail">
+      <div class="detailBody">
+        <h2 class="detailTitle"> Leonardo integration</h2>
+        <p class="detailMeta"><a href="https://leonardocolor.io">https://leonardocolor.io</a></p>
+        <label class="detailLabel">Description: </label>
+        <div class="detailContent">
+          <p>
+            This app demonstrates how Leonardo can be used to create an adaptive color palette. The user can control the theme's lightnerss, contrast, and saturation using the sliders at the top of the page.
+          </p>
+          <p>
+            The sliders pass inputs to the <code>Theme</code> setters, which return new colors from Leonardo. Colors are implemented as CSS properties so that Leonardo can dymanically update their values.
+          </p>
+          <p>
+            Take a look at <a href="https://github.com/adobe/leonardo/blob/main/packages/ui/src/demo.js" target="_blank">here</a> to see how this demo app is built.
+          </p>
+        </div>
+      </div>
+      <div class="detailFooter">
+        <button onclick="location.href='https://github.com/adobe/leonardo/blob/master/packages/ui/src/demo.js'" class="button buttonSecondary">View Demo Source</button>
+        <button onclick="location.href='https://leonardocolor.io'" class="button buttonPrimary">Visit Leonardo</button>
+      </div>
+    </div>
+  </main>
+  <script src="demo.54085a3b.js"></script>
+</body>
+</html>
