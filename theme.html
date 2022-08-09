@@ -48,7 +48,7 @@ gtag('config', 'UA-156021617-1');</script>
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="https://use.typekit.net/sik3zpp.css">
-<link rel="stylesheet" href="theme.b814a673.css"></head>
+<link rel="stylesheet" href="theme.6fce28cd.css"></head>
 </head>
 <body class="spectrum spectrum--medium appFrame">
   <div id="pageLoader">
@@ -200,16 +200,27 @@ gtag('config', 'UA-156021617-1');</script>
           </h3>
         </div>
         <!-- <p class="spectrum-Body spectrum-Body--sizeXS">Modify your entire theme without compromising color relationships. Try making a <b>dark mode</b> theme.</p> -->
-        <div class="spectrum-Form spectrum-Form--spaced">
+        <div class="spectrum-Form spectrum-Form--row">
           <div class="spectrum-Form-item">
-            <label id="themeBaseLabel" for="themeBase" class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM spectrum-FieldLabel--left is-disabled">Background color scale</label>
+            <label id="themeBaseLabel" for="themeBase" class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM spectrum-FieldLabel--left is-disabled">Background color</label>
             <select class="spectrum-Picker is-disabled" name="themeBase" id="themeBase" disabled="">
               <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Picker-icon spectrum-UIIcon-ChevronDownMedium spectrum-Picker-icon">
                 <use xlink:href="#spectrum-css-icon-ChevronDownMedium"></use>
               </svg>
             </select>
           </div>
-        
+          <div class="spectrum-Form-item">
+            <label id="themeWCAGlabel" for="themeWCAG" class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM spectrum-FieldLabel--left">Contrast formula</label>
+            <select class="spectrum-Picker" name="themeWCAG" id="themeWCAG">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="spectrum-Picker-icon spectrum-UIIcon-ChevronDownMedium spectrum-Picker-icon">
+                <use xlink:href="#spectrum-css-icon-ChevronDownMedium"></use>
+              </svg>
+              <option value="wcag2">Relative Luminance</option>
+              <option value="wcag3">APCA</option>
+            </select>
+          </div>
+        </div>
+        <div class="spectrum-Form spectrum-Form--spaced">
           <div class="spectrum-Form-item">
             <div id="brightnessSliderWrapper" class="spectrum-Slider is-disabled themeSettingsSlider">
               <div class="spectrum-Slider-labelContainer">
@@ -1385,7 +1396,7 @@ gtag('config', 'UA-156021617-1');</script>
             <div id="luminosityGradient"></div>
             <div id="ratioInput-wrapper">
               <div class="ratioGrid">
-                <label class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM ratioGrid--ratio">Contrast ratio</label>  
+                <label class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM ratioGrid--ratio" id="ratioInputLabel">WCAG 2 contrast</label>  
                 <label class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM ratioGrid--luminosity">Lightness</label>  
                 <label class="spectrum-FieldLabel spectrum-Fieldlabel--sizeM ratioGrid--status">Status</label>  
               </div>
@@ -1905,7 +1916,7 @@ gtag('config', 'UA-156021617-1');</script>
 </div>  
   </div>
 
-<script src="theme.2bcd5652.js"></script>
+<script src="theme.51766a56.js"></script>
 
 </body>
 </html>
